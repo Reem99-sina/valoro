@@ -1,8 +1,9 @@
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
-import js from '@eslint/js'
-import tseslint from 'typescript-eslint'
+import js from "@eslint/js";
+import tseslint from "typescript-eslint";
+import tanstackQueryPlugin from "@tanstack/eslint-plugin-query";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -11,12 +12,11 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
-    js.configs.recommended,
-  
-  // Add TypeScript support
+export default [
+  js.configs.recommended,
   ...tseslint.configs.recommended,
+
+  // Next.js + TypeScript + Prettier + TanStack
   ...compat.config({
     extends: [
       "next/core-web-vitals",
@@ -24,7 +24,17 @@ const eslintConfig = [
       "prettier",
       "plugin:@tanstack/eslint-plugin-query/recommended",
     ],
-    plugins: ["import", "@tanstack/eslint-plugin-query", "@tanstack/query"],
+    plugins: {
+      "@tanstack/query": tanstackQueryPlugin,
+    },
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        project: "./tsconfig.json",
+        ecmaVersion: "latest",
+        sourceType: "module",
+      },
+    },
     rules: {
       "react/display-name": "off",
       "@next/next/no-img-element": "off",
@@ -36,24 +46,9 @@ const eslintConfig = [
       "@typescript-eslint/no-non-null-assertion": "off",
       "react-hooks/exhaustive-deps": "off",
       "@typescript-eslint/no-var-requires": "off",
-      "lines-around-comment": [
-        "off",
-        {
-          beforeLineComment: true,
-          beforeBlockComment: true,
-          allowBlockStart: true,
-          allowClassStart: true,
-          allowObjectStart: true,
-          allowArrayStart: true,
-        },
-      ],
+      "lines-around-comment": "off",
       "newline-before-return": "error",
-      "import/newline-after-import": [
-        "error",
-        {
-          count: 1,
-        },
-      ],
+      "import/newline-after-import": ["error", { count: 1 }],
       "@typescript-eslint/ban-types": [
         "error",
         {
@@ -74,27 +69,9 @@ const eslintConfig = [
       "import/resolver": {
         typescript: {
           alwaysTryTypes: true,
-          project: ["./tsconfig.json"],
+          project: "./tsconfig.json",
         },
       },
     },
   }),
-
-  // Add specific configurations for different file types
-  {
-    files: ["src/**/*.{js,ts,tsx}"],
-    languageOptions: {
-      parser: tseslint.parser,
-      parserOptions: {
-        project: "./tsconfig.json",
-        ecmaVersion: "latest",
-        sourceType: "module",
-      },
-    },
-  },
-
-  // Add TanStack Query plugin configuration
-  tanstackQueryPlugin.configs.recommended,
 ];
-
-export default eslintConfig;
