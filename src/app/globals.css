@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --main-blue: #0e70b1;
+  --main-orange: #f26e5d;
+  --main-light-blue: #60d1eb;
+  --border-light: #d9efff;
+  --secondary-blue: #4A90E2;
+  --thrid-blue: #7DD3FC;
+  --secondary-light-blue: #f8fcff;
+  --text-blue: #004777;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-main-blue: var(--main-blue);
+  --color-main-orange: var(--main-orange);
+  --color-main-light-blue: var(--main-light-blue);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-border-light: var(--border-light);
+  --color-secondary-blue: var(--secondary-blue);
+  --color-thrid-blue: var(--thrid-blue);
+  --color-secondary-light-blue: var(--secondary-light-blue);
+  --color-text-blue: var(--text-blue);
+}
+
+@layer utilities {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .container {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.slick-track{
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
