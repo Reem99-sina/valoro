@@ -1,8 +1,7 @@
-export interface ValoroResponse {
-  data: ValoroData;
+export interface IResponse<T> {
+  data: T;
   meta: Record<string, any>;
 }
-
 
 export interface ValoroData {
   id: number;
@@ -136,23 +135,15 @@ export interface ImageFormat {
   url: string;
 }
 
-export interface AboutUsResponce {
-  data: {
-    id: number;
-    documentId: string;
-    createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
-    title: string;
-    description: string;
-    about_us: AboutUs;
-  };
-  meta: Record<string, any>;
-}
-
-export interface ProjectsResponse {
-  data: ProjectsData;
-  meta: Record<string, any>;
+export interface AboutUsData {
+  id: number;
+  documentId: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  title: string;
+  description: string;
+  about_us: AboutUs;
 }
 
 export interface ProjectsData {
@@ -195,11 +186,6 @@ export interface IndustryData {
   industry: IndustrySection;
 }
 
-export interface IndustryRes {
-  data: IndustryData;
-  meta: Record<string, any>;
-}
-
 export interface FeaturesData {
   id: number;
   documentId: string;
@@ -208,7 +194,7 @@ export interface FeaturesData {
   publishedAt: string;
   title: string;
   description: string;
-  features: {logos:Media[],title:string};
+  features: { logos: Media[]; title: string };
 }
 
 export interface FeaturesRes {
@@ -227,15 +213,10 @@ export interface PartnersData {
   partner: Partner;
 }
 
-export interface PartnerRes {
-  data: PartnersData;
-  meta: Record<string, any>;
-}
-
 export interface BulletItem {
   id: number;
   title: string;
-  description?: {desc:string,id:number}[]; // optional, if exists
+  description?: { desc: string; id: number }[]; // optional, if exists
   points?: string[]; // optional array of bullet points if present
 }
 
@@ -255,7 +236,64 @@ export interface ServicesData {
   description: string;
   Services: ServicesSection;
 }
-export interface ServicesRes {
-  data: ServicesData;
-  meta: Record<string, any>;
+
+export interface Description {
+  id: number;
+  desc: string;
+}
+
+export interface AboutUs {
+  id: number;
+  title: string;
+  description: Description[]; // قائمة من الفقرات
+}
+
+export interface Transformation {
+  id: number;
+  title: string;
+  description: string; // هذا نص فقط، مش كائن
+  about_us: AboutUs[];
+}
+//
+export interface TransformationRes {
+  id: number;
+  documentId: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  title: string;
+  description: string;
+  transformation: Transformation;
+}
+
+export interface blockchain_projects {
+  id: number;
+  projects: { id: number; name: string }[];
+  title: string;
+}
+export interface blockchainRes {
+  id: number;
+  documentId: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  title: string;
+  description: string;
+  blockchain_projects: blockchain_projects;
+}
+
+export interface blockchain_service {
+  id: number;
+  services: BulletItem[];
+  title: string;
+}
+export interface blockchainServiceRes {
+  id: number;
+  documentId: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  title: string;
+  description: string;
+  blockchain_service: blockchain_service;
 }

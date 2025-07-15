@@ -1,4 +1,4 @@
-import { useAboutUsQuery, usePartnerQuery } from "@/services/main-home";
+import { usePartnerQuery } from "@/services/main-home";
 
 import React from "react";
 
@@ -6,7 +6,6 @@ import TitleSliderComponet from "../shared/title-slider-componet";
 
 const PartnersSection = () => {
   const { data } = usePartnerQuery();
-
 
   return (
     <TitleSliderComponet

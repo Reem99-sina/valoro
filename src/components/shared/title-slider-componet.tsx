@@ -1,7 +1,7 @@
-import Image from "next/image";
+
 import React from "react";
 import Slider, { Settings } from "react-slick";
-import { config } from "@/config";
+import { BlogCard } from "./card.component";
 
 const TitleSliderComponet = ({
   title,
@@ -13,9 +13,10 @@ const TitleSliderComponet = ({
   const settings: Settings = {
     dots: false,
     infinite: true,
-    speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 1,
+    speed: 200,
+    slidesToShow: 2,
+    slidesToScroll: 2,
+    autoplay: true,
 
     centerMode: true,
     centerPadding: "0px",
@@ -23,19 +24,19 @@ const TitleSliderComponet = ({
       {
         breakpoint: 1024, // Screens <= 1024px (e.g., tablets)
         settings: {
-          slidesToShow: 5,
+          slidesToShow: 2,
         },
       },
       {
         breakpoint: 768, // Screens <= 768px (e.g., mobile landscape)
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
         },
       },
       {
         breakpoint: 480, // Screens <= 480px (e.g., mobile portrait)
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
         },
       },
     ],
@@ -43,22 +44,24 @@ const TitleSliderComponet = ({
 
   return (
     <div className=" w-full container mx-auto  my-6">
-      <div className="bg-main-light-blue p-4 w-fit font-black text-white my-6 mx-auto rounded-lg">
+      <div className="text-2xl w-fit font-black text-main-light-blue my-6 mx-3 rounded-lg text-start">
         {/* {data?.data?.about_us?.partner} */}
         {title}
       </div>
-      <Slider {...settings} className="">
-        {data?.map((ele) => (
-          <div className="flex items-center justify-center">
-            <Image
-              src={(ele?.url||ele?.icon?.url)}
-              alt="about"
-              width={100}
-              height={100}
+
+      <Slider {...settings} className="project-slider">
+        {data?.map((ele, index) => (
+          <div className="flex  justify-center px-4 h-full gap-3" key={index}>
+            <BlogCard
+              title={ele?.title}
+              desc={ele?.projectOverview}
+              imageUrl={ele?.image}
+              tech={ele?.tech}
             />
           </div>
         ))}
       </Slider>
+      {/* <EmblaTestimonialSlider testimonials={data}/> */}
     </div>
   );
 };

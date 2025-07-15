@@ -1,36 +1,67 @@
-import { config } from "@/config";
-import { useIndustryQuery } from "@/services/main-home";
-import Image from "next/image";
+import { useTranslation } from "@/translations/clients";
+
 import React from "react";
 
 const IndustrySection = () => {
-  const { data } = useIndustryQuery();
-  console.log(data, "data");
+  const { t } = useTranslation();
+  const dataIndustry = [
+    {
+      title: t("industries.education"),
+      icon: "🎓",
+    },
+    {
+      title: t("industries.crowdfunding"),
+      icon: "💰",
+    },
+    {
+      title: t("industries.fintech"),
+      icon: "🏦",
+    },
+    {
+      title: t("industries.government"),
+      icon: "🏛️",
+    },
+    {
+      title: t("industries.healthcare"),
+      icon: "⚕️",
+    },
+    {
+      title: t("industries.islamicFinance"),
+      icon: "🕌",
+    },
+    {
+      title: t("industries.realEstate"),
+      icon: "🏛️",
+    },
+  ];
+
   return (
     <section
       id="industry"
-      className="bg-[url('/industry.png')] bg-cover w-full min-h-screen flex flex-col justify-center"
+      className="bg-cover w-full min-h-screen flex flex-col justify-center"
     >
-      <div className="container mx-auto flex items-center gap-5 justify-center">
-        <div className="flex flex-col gap-5 flex-1 w-auto">
-          <div className="bg-main-light-blue p-4 w-max font-black text-white">
-            <p>{data?.data?.industry?.heading}</p>
+      <div className="container mx-auto flex items-center gap-5 justify-center flex-col ">
+        <div className="flex flex-col gap-5 flex-[0.5] w-auto justify-center items-center">
+          <div className=" p-4 max-w-lg font-black text-main-light-blue text-2xl text-center">
+            <p>{t("featuredIn.subtitle")}</p>
           </div>
-          <p className="text-text-blue">{data?.data?.industry?.text}</p>
+          <p className="text-text-blue">{t("featuredIn.description")}</p>
         </div>
-        <div className="flex flex-col items-end gap-3 flex-1">
-          {data?.data?.industry?.cards?.map((ele) => (
+
+        <div className="flex flex-wrap justify-center items-center gap-8">
+          {dataIndustry?.map((ele, index) => (
             <div
-              className=" bg-main-light-blue w-[200px] p-4 text-start shadow-2xl flex justify-start items-center"
-              key={ele?.id}
+              // className="flex items-center gap-3    rounded-2xl p-8  transition-all duration-300 hover:scale-105 list-disc"
+              className="flex items-center space-x-2 bg-main-blue px-2 py-3 rounded-lg shadow-sm  hover:shadow-md transition-shadow"
+              key={index}
             >
-                <p>{ele?.heading}</p>
-              {/* <Image
-                src={config?.NEXT_PUBLIC_BASE_URL + ele?.icon?.url}
-                alt={ele?.icon?.caption || "icon"}
-                width={50}
-                height={50}
-              /> */}
+              <div
+                className={`w-10 h-10 rounded-lg bg-gradient-to-r from-main-blue to-main-light-blue  flex items-center justify-center text-white text-lg shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
+              >
+                {ele?.icon}
+              </div>
+
+              <p className=" font-bold whitespace-nowrap text-xs">{ele?.title}</p>
             </div>
           ))}
         </div>

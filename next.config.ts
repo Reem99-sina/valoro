@@ -11,9 +11,7 @@ const nextConfig = {
     //     pathname: "/uploads/**",
     //   },
     // ],
-    domains: [
-      "rational-unity-e3171a749a.media.strapiapp.com"
-    ],
+    domains: ["rational-unity-e3171a749a.media.strapiapp.com", "localhost"],
   },
 };
 

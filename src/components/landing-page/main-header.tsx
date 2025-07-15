@@ -1,35 +1,23 @@
-import { VoloroLogo } from "@/assets/icon";
-import { config } from "@/config";
-import { KpiCard } from "@/types/common.type";
-import Image from "next/image";
+import { useTranslation } from "@/translations/clients";
 
-interface props {
-  title?: string;
-  desc?: string;
-  cards?: KpiCard[];
-}
+const MainHeader = () => {
+  const { t } = useTranslation();
 
-const MainHeader = ({ desc, cards }: props) => {
   return (
-    <section className="text-main-blue flex flex-col gap-3 " id="home">
-      <VoloroLogo />
-      <p className="ml-[10%]">{desc}</p>
-      <div className="grid grid-cols-3 gap-5">
-        {cards?.map((ele) => (
-          <div
-            className="bg-white border border-border-light shadow-lg rounded-4xl py-5 px-3 flex flex-col gap-4 items-start lg:min-w-[260px]"
-            key={ele?.id}
-          >
-            <Image src={ele?.icon?.url} alt="icon" width={100} height={100} />
-            <div className=" bg-main-orange p-3 text-3xl text-white font-black">
-              <p>{ele?.heading}</p>
-            </div>
-            <div className=" bg-main-blue p-3 text-3xl text-white font-black">
-              {ele?.text}
-            </div>
-          </div>
-        ))}
-      </div>
+    <section
+      className="text-main-blue flex flex-col gap-3  min-h-screen justify-center items-center text-center"
+      id="home"
+    >
+      <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
+        <span className="text-main-light-blue">{t("hero.name")}</span>
+      </h1>
+      <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold leading-tight">
+        <span className="text-main-blue">{t("hero.title")}</span>
+      </h2>
+
+      <p className="mt-6 max-w-2xl text-lg sm:text-xl text-main-blue">
+        {t("about.description")}
+      </p>
     </section>
   );
 };

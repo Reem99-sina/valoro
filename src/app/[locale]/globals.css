@@ -6,9 +6,10 @@
   --main-blue: #0e70b1;
   --main-orange: #f26e5d;
   --main-light-blue: #60d1eb;
+  --main-dark-blue: #0c72b8;
   --border-light: #d9efff;
-  --secondary-blue: #4A90E2;
-  --thrid-blue: #7DD3FC;
+  --secondary-blue: #4a90e2;
+  --thrid-blue: #7dd3fc;
   --secondary-light-blue: #f8fcff;
   --text-blue: #004777;
 }
@@ -19,6 +20,7 @@
   --color-main-blue: var(--main-blue);
   --color-main-orange: var(--main-orange);
   --color-main-light-blue: var(--main-light-blue);
+  --color-main-dark-blue: var(--main-dark-blue);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --color-border-light: var(--border-light);
@@ -75,8 +77,35 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-.slick-track{
+
+.slick-track {
   display: flex !important;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
+}
+
+.project-slider .slick-list {
+  height: 100% !important; /* Ensure the list container takes full height */
+}
+
+.project-slider .slick-track {
+  display: flex !important;
+  align-items: stretch !important; /* This is key for stretching items */
+}
+
+.project-slider .slick-slide {
+  height: auto !important; /* Allow height to be determined by content */
+  display: flex !important; /* Make each slide a flex container */
+}
+
+.project-slider .slick-slide > div {
+  height: 100% !important; /* Ensure the direct child of slick-slide (our wrapper div) takes full height */
+  display: flex !important; /* Make it a flex container too */
+  flex-direction: column; /* Ensure inner content can stretch vertically */
+}
+
+.embla__slide {
+  flex-shrink: 0;
+  position: relative;
+  min-height: 0; /* Allow content to define height */
 }

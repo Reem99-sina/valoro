@@ -1,44 +1,59 @@
-import Check from "@/assets/image/check.png";
-import Services from "@/assets/image/services.jpg";
+import { useTranslation } from "@/translations/clients";
+import { Brain, Cpu, Layers } from "lucide-react";
 
-import { config } from "@/config";
-import { useServiesQuery } from "@/services/main-home";
-import Image from "next/image";
 import React from "react";
 
 const ServicesSection = () => {
-  const { data } = useServiesQuery();
-  console.log(data, "data");
+  const { t } = useTranslation();
+  const services = [
+    {
+      title: t("services.digitalTransformation.title"),
+      icon: <Cpu className="w-6 h-6 text-white" />,
+      desc: t("services.digitalTransformation.description"),
+    },
+    {
+      title: t("services.aiSolutions.title"),
+      icon: <Brain className="w-6 h-6 text-white" />,
+
+      desc: t("services.aiSolutions.description"),
+    },
+    {
+      title: t("services.blockchain.title"),
+      icon: <Layers className="w-6 h-6 text-white" />,
+
+      desc: t("services.blockchain.description"),
+    },
+  ];
 
   return (
     <section
       id="industry"
-      className="bg-[url('/header.PNG')] bg-cover w-full min-h-screen flex flex-col justify-center"
+      className=" bg-cover w-full min-h-[90vh] flex flex-col justify-center"
     >
-      <div className="container mx-auto flex items-center gap-5 justify-between">
-        <div className="flex flex-col gap-5 flex-1 w-auto">
-          <div className="bg-main-light-blue p-4 w-max font-black text-white">
-            <p>{data?.data?.Services?.title}</p>
+      <div className="container mx-auto flex items-center gap-5 justify-center flex-col">
+        <div className="flex flex-col gap-5 flex-1 w-auto items-center">
+          <div className="text-center p-4 w-max font-black text-main-light-blue text-2xl">
+            <p>{t("services.title")}</p>
           </div>
-          <div className="flex flex-col gap-3 flex-1">
-            {data?.data?.Services?.bullets?.map((ele) => (
-              <ul className="list-disc" key={ele?.id}>
-                <div
-                  className=" p-4 text-start flex justify-start items-center gap-3"
-                  key={ele?.id}
-                >
-                  <Image src={Check} alt="Check" width={15} height={15} />
-                  <p className="text-text-blue font-bold">{ele?.title}</p>
+          <div className="flex  gap-3 flex-1">
+            {services?.map((ele, index) => (
+              <ul
+                className="bg-main-blue   rounded-2xl p-8  transition-all duration-300 hover:scale-105 list-disc"
+                key={index}
+              >
+                <div className="w-12 h-12 bg-gradient-to-r from-main-blue to-main-light-blue rounded-lg flex items-center justify-center mb-6">
+                  {ele?.icon}
                 </div>
-                {ele?.description?.map((elem) => (
-                  <li className="text-text-blue ml-12" key={elem?.id}>{elem?.desc}</li>
-                ))}
+                <p className=" font-bold text-main-light-blue">{ele?.title}</p>
+
+                {ele?.desc
+                  ?.split(".")
+                  ?.map(
+                    (ele,index) => ele && <li className=" text-sm  ml-4"key={index}>{ele}</li>
+                  )}
               </ul>
             ))}
           </div>
-        </div>
-        <div>
-          <Image src={Services} width={400} height={200} alt="service" />
         </div>
       </div>
     </section>

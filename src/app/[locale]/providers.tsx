@@ -4,6 +4,7 @@ import { FetchProvider } from "@/contexts/fetch.context";
 
 import { ToastContainer } from "react-toastify";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { I18nProviderClient } from "@/translations/clients";
 
 interface Props {
   children: React.ReactNode;
@@ -22,10 +23,12 @@ export const Providers = ({ children }: Props) => {
   return (
     <>
       <ToastContainer position="top-left" />
+      <I18nProviderClient locale="en">
+        <QueryClientProvider client={queryClient}>
+          <FetchProvider>{children}</FetchProvider>
 
-      <QueryClientProvider client={queryClient}>
-        <FetchProvider>{children}</FetchProvider>
-      </QueryClientProvider>
+        </QueryClientProvider>
+      </I18nProviderClient>
     </>
   );
 };
