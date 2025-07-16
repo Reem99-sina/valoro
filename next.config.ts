@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
-  reactStrictMode: true,
+  // reactStrictMode: true,
   images: {
     // remotePatterns: [
     //   {
@@ -14,17 +14,6 @@ const nextConfig: NextConfig = {
     //   },
     // ],
     domains: ["rational-unity-e3171a749a.media.strapiapp.com", "localhost"],
-  },
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.(png|jpe?g|gif)$/i,
-      type: "asset/resource",
-      generator: {
-        filename: "static/images/[name].[hash][ext]",
-      },
-    });
-
-    return config;
   },
 };
 
