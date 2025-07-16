@@ -85,7 +85,7 @@ const BlockchainSection = () => {
             />
           </div>
         </div>
-        <div className="flex flex-col gap-5  w-auto py-6 min-h-screen items-start justify-center">
+        <div className="flex flex-col gap-5  w-auto py-6 min-h-screen items-center justify-center">
           <div className="text-start  w-max font-black text-main-light-blue text-2xl">
             {t("blockchainProfessionalServices.title")}
           </div>
