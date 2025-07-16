@@ -28,4 +28,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-module.exports = withSvgr(nextConfig);
+export default withSvgr(nextConfig);
