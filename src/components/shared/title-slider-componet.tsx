@@ -1,6 +1,4 @@
-
 import React from "react";
-import Slider, { Settings } from "react-slick";
 import { BlogCard } from "./card.component";
 
 const TitleSliderComponet = ({
@@ -10,57 +8,31 @@ const TitleSliderComponet = ({
   title?: string;
   data?: any[];
 }) => {
-  const settings: Settings = {
-    dots: false,
-    infinite: true,
-    speed: 200,
-    slidesToShow: 2,
-    slidesToScroll: 2,
-    autoplay: true,
 
-    centerMode: true,
-    centerPadding: "0px",
-    responsive: [
-      {
-        breakpoint: 1024, // Screens <= 1024px (e.g., tablets)
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 768, // Screens <= 768px (e.g., mobile landscape)
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 480, // Screens <= 480px (e.g., mobile portrait)
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
-  };
 
   return (
-    <div className=" w-full container mx-auto  my-6">
-      <div className="text-2xl w-fit font-black text-main-light-blue my-6 mx-3 rounded-lg text-start">
+    <div className=" w-full container mx-auto  my-6 flex flex-col items-center">
+      <div className="text-4xl w-fit font-black text-main-light-blue my-6 mx-3 rounded-lg text-center">
         {/* {data?.data?.about_us?.partner} */}
         {title}
       </div>
 
-      <Slider {...settings} className="project-slider">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {data?.map((ele, index) => (
-          <div className="flex  justify-center px-4 h-full gap-3" key={index}>
+          <div
+            key={index}
+            className={`flex justify-center h-full ${index % 3 === 2  ? "md:col-span-2" : "md:col-span-1"}`}
+          >
             <BlogCard
               title={ele?.title}
               desc={ele?.projectOverview}
               imageUrl={ele?.image}
               tech={ele?.tech}
+              index={index}
             />
           </div>
         ))}
-      </Slider>
+      </div>
       {/* <EmblaTestimonialSlider testimonials={data}/> */}
     </div>
   );

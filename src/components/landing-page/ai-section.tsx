@@ -133,7 +133,7 @@ export function AiSection() {
       <div className="container mx-auto ">
         <div className="flex items-center gap-5 justify-center min-h-screen">
           <div className="flex flex-col gap-5 flex-1 w-auto">
-            <div className="text-center  w-max font-black text-main-light-blue text-2xl">
+            <div className="text-center  w-max font-black text-main-light-blue text-4xl">
               {t("aiProjects.title")}
             </div>
             <div className="flex flex-col gap-3 flex-1">

@@ -62,7 +62,7 @@ const BlockchainSection = () => {
       <div className="container mx-auto ">
         <div className="flex items-center gap-5 justify-center min-h-screen">
           <div className="flex flex-col gap-5 flex-1 w-auto">
-            <div className="text-start  w-max font-black text-main-light-blue text-2xl">
+            <div className="text-start  w-max font-black text-main-light-blue text-4xl">
               {t("blockchainProjects.title")}
             </div>
             <div className="flex flex-col gap-3 flex-1">
@@ -86,7 +86,7 @@ const BlockchainSection = () => {
           </div>
         </div>
         <div className="flex flex-col gap-5  w-auto py-6 min-h-screen items-center justify-center">
-          <div className="text-start  w-max font-black text-main-light-blue text-2xl">
+          <div className="text-start  w-max font-black text-main-light-blue text-4xl">
             {t("blockchainProfessionalServices.title")}
           </div>
           <div className="flex flex-row gap-5   ">

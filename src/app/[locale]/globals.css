@@ -80,11 +80,16 @@ body {
 
 .slick-track {
   display: flex !important;
-  /* align-items: center; */
+  align-items: center;
   justify-content: center;
 }
 
-.project-slider .slick-list {
+.project-slider .slick-track {
+  display: flex !important;
+  /* align-items: center; */
+  justify-content: center;
+}
+.project-slider  .slick-list {
   height: 100% !important; /* Ensure the list container takes full height */
 }
 
@@ -108,4 +113,17 @@ body {
   flex-shrink: 0;
   position: relative;
   min-height: 0; /* Allow content to define height */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 15s both infinite; /* Adjusted to 15s for faster movement */
 }

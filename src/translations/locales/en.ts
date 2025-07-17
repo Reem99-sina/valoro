@@ -11,9 +11,9 @@ export default {
     name: "Valoro",
   },
   stats: {
-    customers: "100+ Customers",
-    countries: "10+ Countries",
-    people: "1000+ People",
+    customers: "Customers",
+    countries: "Countries",
+    people: "People",
   },
   about: {
     title: "About us",
@@ -72,7 +72,7 @@ export default {
     ipExchange: "IPExchange - Egyptian National Platform for IP Rights",
   },
   servicesDetails: {
-    title: "Valoro Blockchain Professional Services",
+    title: " Blockchain Professional Services",
     challenges: {
       title: "Customer Challenges",
       items: [
@@ -141,7 +141,7 @@ export default {
     ],
   },
   blockchainProfessionalServices: {
-    title: "Valoro Blockchain Professional Services",
+    title: " Blockchain Professional Services",
     customerChallenge: {
       title: "Customer Challenge",
       challenges: [

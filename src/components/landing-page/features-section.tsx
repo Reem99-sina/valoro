@@ -22,8 +22,8 @@ import bokra from "@/assets/image/bokra.png";
 import oqod from "@/assets/image/oqod.png";
 import digital from "@/assets/image/digital.png";
 import ataaCoin from "@/assets/image/yalla.png";
-import coronavirus from "@/assets/image/coronavirus.png";
-import tradeflo from "@/assets/image/tradeflo.png";
+// import coronavirus from "@/assets/image/coronavirus.png";
+// import tradeflo from "@/assets/image/tradeflo.png";
 
 import intercom from "@/assets/image/intercom.png";
 
@@ -31,7 +31,21 @@ const FeaturesSection = () => {
   const { t } = useTranslation();
   
   const projects = [
+  
     {
+      title: t("oneStopShopSystem.title"),
+      desc: t("oneStopShopSystem.duTitle"),
+      image: du,
+
+      projectOverview: t("oneStopShopSystem.duText"),
+      tech: [
+        { id: "node", component: <Node /> },
+        { id: "react", component: <ReactLogo /> },
+        { id: "docker", component: <Doker /> }, // If this is a typo, rename to <Docker />
+        { id: "ethereum", component: <Ethereum /> },
+      ],
+    },
+      {
       title: t("ideaToMarket.title"),
       desc: t("ideaToMarket.projectOverviewTitle"),
       projectOverview: t("ideaToMarket.projectOverviewText"),
@@ -54,19 +68,6 @@ const FeaturesSection = () => {
         {
           icon: <Pdesc />,
         },
-      ],
-    },
-    {
-      title: t("oneStopShopSystem.title"),
-      desc: t("oneStopShopSystem.duTitle"),
-      image: du,
-
-      projectOverview: t("oneStopShopSystem.duText"),
-      tech: [
-        { id: "node", component: <Node /> },
-        { id: "react", component: <ReactLogo /> },
-        { id: "docker", component: <Doker /> }, // If this is a typo, rename to <Docker />
-        { id: "ethereum", component: <Ethereum /> },
       ],
     },
     {
@@ -147,18 +148,18 @@ const FeaturesSection = () => {
       image: ataaCoin,
       projectOverview: t("ataaCoin.projectOverviewText"),
     },
-    {
-      title: t("coronavirus.title"),
-      desc: t("coronavirus.projectOverviewText"),
-      image: coronavirus,
-      projectOverview: t("coronavirus.projectOverviewText"),
-    },
-    {
-      title: t("tradeflo.title"),
-      desc: t("tradeflo.projectOverviewText"),
-      image: tradeflo,
-      projectOverview: t("tradeflo.projectOverviewText"),
-    },
+    // {
+    //   title: t("coronavirus.title"),
+    //   desc: t("coronavirus.projectOverviewText"),
+    //   image: coronavirus,
+    //   projectOverview: t("coronavirus.projectOverviewText"),
+    // },
+    // {
+    //   title: t("tradeflo.title"),
+    //   desc: t("tradeflo.projectOverviewText"),
+    //   image: tradeflo,
+    //   projectOverview: t("tradeflo.projectOverviewText"),
+    // },
   ];
 
   return (

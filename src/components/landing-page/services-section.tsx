@@ -32,7 +32,7 @@ const ServicesSection = () => {
     >
       <div className="container mx-auto flex items-center gap-5 justify-center flex-col">
         <div className="flex flex-col gap-5 flex-1 w-auto items-center">
-          <div className="text-center p-4 w-max font-black text-main-light-blue text-2xl">
+          <div className="text-center p-4 w-max font-black text-main-light-blue text-4xl">
             <p>{t("services.title")}</p>
           </div>
           <div className="flex  gap-3 flex-1">
