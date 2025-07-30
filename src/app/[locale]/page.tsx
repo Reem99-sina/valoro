@@ -10,43 +10,39 @@ import FeaturesSection from "@/components/landing-page/features-section";
 
 import IndustrySection from "@/components/landing-page/industry-section";
 import MainHeader from "@/components/landing-page/main-header";
-import { OverviewProject } from "@/components/landing-page/overview-section";
+import PartnersSection from "@/components/landing-page/partners-section";
 
 import ProjectsSection from "@/components/landing-page/projects-section";
 import ServicesSection from "@/components/landing-page/services-section";
 import { TechnologySection } from "@/components/landing-page/valoroTechnology";
+import Footer from "@/components/shared/footer.component";
 
 // import imageBg from "@/assets/bg.png"
 
 export default function Home() {
   return (
-    <div className=" w-full bg-secondary-light-blue">
+    <div className=" w-full bg-gradient-to-r from-blue-100 via-white to-blue-200">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start ">
-        <div className="bg-[url('/header.PNG')] bg-cover w-full">
-          <div className="container mx-auto">
+        <div className="bg-[url('/bg-main.jpg')] bg-cover w-full">
+          <div className="container mx-auto min-h-screen">
             <Header />
             <MainHeader />
           </div>
         </div>
 
         <AboutSection />
+        <PartnersSection />
         <ProjectsSection />
         <IndustrySection />
         <TechnologySection />
 
         <ServicesSection />
         <DigitalTransformation />
-        <OverviewProject />
         <BlockchainSection />
         <FeaturesSection />
         <AiSection />
       </main>
-      <footer className="row-start-3 flex  flex-col items-center justify-around bg-main-blue p-4 text-white">
-        <p className="">
-          © 2025 Valoro. All rights reserved. Terms and Conditions Privacy
-          Policy
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }

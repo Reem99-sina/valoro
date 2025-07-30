@@ -16,6 +16,8 @@ import {
   ReactNative,
 } from "@/assets/icon";
 import { useTranslation } from "@/translations/clients";
+import Slider from "react-slick";
+import { Settings } from "react-slick";
 
 export function TechnologySection() {
   const { t } = useTranslation();
@@ -36,27 +38,57 @@ export function TechnologySection() {
     { id: "docker", component: <Doker /> },
     { id: "ethereum", component: <Ethereum /> },
   ];
+  const settings: Settings = {
+    dots: false,
+    infinite: true,
+    speed: 500, // Speed of the transition animation (in ms)
+    slidesToShow: 5, // Number of slides to show at once
+    slidesToScroll: 1, // Number of slides to scroll at once for a smoother effect
+    autoplay: true,
+    autoplaySpeed: 0, // Set to 0 for continuous movement (relies on `speed` for transition duration)
+    cssEase: "linear", // Ensures a linear, continuous-like movement
+    arrows: false, // Hide navigation arrows
+    pauseOnHover: false, // Keep autoplaying on hover
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
+  };
 
   return (
     <section id="technology" className=" bg-cover w-full  flex flex-col ">
-      <div className="container mx-auto ">
-        <div className="flex items-center gap-5 justify-center min-h-[50vh] w-full">
-          <div className="flex flex-col gap-5 flex-1 w-auto items-center">
-            <div className="text-center  w-max font-black text-main-light-blue text-2xl">
-              {t("valoroTechnologyStack.title")}
-            </div>
-            <div className="flex flex-wrap justify-center items-center gap-8">
-              {data?.map((ele) => (
-                <div
-                  key={ele?.id}
-                  className="flex items-center space-x-2 bg-white px-4 py-3 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
-                >
-                  {ele?.component}
-                </div>
-              ))}
-            </div>
+      <div className=" w-full container mx-auto  my-6 flex items-center gap-6 justify-center flex-col">
+        <div className="flex flex-col items-start  ">
+          <div className="text-center  font-black text-main-light-blue text-4xl">
+            {t("valoroTechnologyStack.title")}
           </div>
         </div>
+        <Slider {...settings} className="max-w-[60vw] items-center">
+          {data?.map((ele) => (
+            <div
+              key={ele?.id}
+              className="flex items-center space-x-2  px-4 py-3   hover:shadow-md transition-shadow"
+            >
+              {ele?.component}
+            </div>
+          ))}
+        </Slider>
       </div>
     </section>
   );

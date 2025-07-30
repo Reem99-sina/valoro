@@ -1,9 +1,10 @@
 import Image from "next/image";
 import React from "react";
 import blockchainImage from "@/assets/image/blockchange_project.png";
-
+import { motion } from "framer-motion";
 import { useTranslation } from "@/translations/clients";
 import { Award, Info, Target } from "lucide-react";
+import { easeInOut } from "framer-motion";
 
 const BlockchainSection = () => {
   const { t } = useTranslation();
@@ -53,46 +54,96 @@ const BlockchainSection = () => {
       ],
     },
   ];
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: easeInOut,
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: easeInOut },
+    },
+  };
 
   return (
-    <section
-      id="blockchain"
-      className=" bg-cover w-full  flex flex-col justify-center"
-    >
-      <div className="container mx-auto ">
-        <div className="flex items-center gap-5 justify-center min-h-screen">
-          <div className="flex flex-col gap-5 flex-1 w-auto">
-            <div className="text-start  w-max font-black text-main-light-blue text-2xl">
-              {t("blockchainProjects.title")}
+    <>
+      <motion.section
+        id="blockchain"
+        className=" w-full flex flex-col justify-center py-12"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }} // Adjust amount as needed
+        variants={sectionVariants}
+      >
+        <div className="container mx-auto ">
+          <div className="flex  flex-col gap-5 justify-center min-h-screen">
+            <motion.div className="flex flex-col gap-5 items-center" variants={itemVariants}>
+              <div className="text-justify   font-black text-main-light-blue text-4xl">
+                {t("blockchainProjects.title")}
+              </div>
+            </motion.div>
+            <div className="flex justify-between gap-5 md:flex-nowrap flex-wrap">
+              <div className="flex flex-col gap-5  text-md justify-center items-start">
+                {blockchainProject?.map((ele, index) => (
+                  <motion.ul
+                    className="list-disc"
+                    key={index}
+                    variants={itemVariants}
+                  >
+                    <div className="  text-start flex justify-start items-center gap-3">
+                      <Info className=" text-main-light-blue animate-bounce" />
+                      <p className="text-main-blue ">{ele?.title}</p>
+                    </div>
+                  </motion.ul>
+                ))}
+              </div>
+              <motion.div className="" variants={itemVariants}>
+                <Image
+                  src={blockchainImage}
+                  width={400}
+                  height={200}
+                  alt="blockchainImage"
+                />
+              </motion.div>
             </div>
-            <div className="flex flex-col gap-3 flex-1">
-              {blockchainProject?.map((ele, index) => (
-                <ul className="list-disc" key={index}>
-                  <div className="  text-start flex justify-start items-center gap-3">
-                    <Info className=" text-main-light-blue" />
-                    <p className="text-main-blue font-bold">{ele?.title}</p>
-                  </div>
-                </ul>
-              ))}
-            </div>
-          </div>
-          <div>
-            <Image
-              src={blockchainImage}
-              width={400}
-              height={200}
-              alt="blockchainImage"
-            />
           </div>
         </div>
-        <div className="flex flex-col gap-5  w-auto py-6 min-h-screen items-center justify-center">
-          <div className="text-start  w-max font-black text-main-light-blue text-2xl">
+      </motion.section>
+      <motion.section
+        id="blockchain-sevices"
+        className=" w-full flex flex-col justify-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }} // Adjust amount as needed
+        variants={sectionVariants}
+      >
+        <div className="container mx-auto min-h-screen flex flex-col items-center gap-5 justify-center">
+        <div className="flex flex-col gap-5  w-auto py-6  justify-center">
+          <motion.div
+            className="text-center font-black text-main-light-blue text-4xl"
+            variants={itemVariants}
+          >
             {t("blockchainProfessionalServices.title")}
-          </div>
-          <div className="flex flex-row gap-5   ">
+          </motion.div>
+          <motion.div
+            className="flex flex-col md:flex-row gap-5 flex-wrap md:flex-nowrap"
+            variants={sectionVariants}
+          >
             {blockChainServices?.map((ele, index) => (
               <ul
-                className="bg-main-blue   rounded-2xl p-8  transition-all duration-300 hover:scale-105 list-disc"
+                className="bg-main-blue   rounded-2xl p-8  transition-all duration-300 hover:scale-105 list-disc w-full"
                 key={index}
               >
                 <div className="w-12 h-12 bg-gradient-to-r from-main-blue to-main-light-blue rounded-lg flex items-center justify-center mb-6">
@@ -110,10 +161,11 @@ const BlockchainSection = () => {
                 )}
               </ul>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </div>
-    </section>
+        </div>
+      </motion.section>
+    </>
   );
 };
 

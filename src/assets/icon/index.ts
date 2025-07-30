@@ -54,3 +54,6 @@ export { default as Aws } from "./aws.svg";
 export { default as Python } from "./python.svg";
 export { default as ReactNative } from "./react-native.svg";
 export { default as LlmModels } from "./llm-models.svg";
+export { default as Hp } from "./hp.svg";
+export { default as Ipma } from "./ipma.svg";
+export { default as V } from "./v.svg";

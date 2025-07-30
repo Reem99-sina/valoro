@@ -38,23 +38,11 @@ export const Header = () => {
     ];
   }, []);
 
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 0);
-    };
-    window.addEventListener("scroll", onScroll);
-
-    // Cleanup on unmount
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
     <div
       className={clsx(
-        " flex justify-center left-10 right-10 fixed top-0  my-5 rounded-4xl z-10",
-        scrolled ? "bg-white shadow-md" : "bg-transparent"
+        " flex justify-center left-10 right-10   my-5 rounded-4xl z-20",
+        "bg-transparent"
       )}
     >
       <div
@@ -74,7 +62,7 @@ export const Header = () => {
               <Link
                 href={link.to as string}
                 className={clsx(
-                  "relative text-md font-bold text-main-blue  capitalize whitespace-nowrap"
+                  "relative text-md font-bold text-white  capitalize whitespace-nowrap"
                 )}
               >
                 {link.text}

@@ -45,22 +45,22 @@
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 2rem;
-      padding-right: 2rem;
+      padding-left: 5rem;
+      padding-right: 5rem;
     }
   }
 
   @media (min-width: 1280px) {
     .container {
-      padding-left: 4rem;
-      padding-right: 4rem;
+      padding-left: 5rem;
+      padding-right: 5rem;
     }
   }
 
   @media (min-width: 1536px) {
     .container {
-      padding-left: 4rem;
-      padding-right: 4rem;
+      padding-left: 5rem;
+      padding-right: 5rem;
     }
   }
 }
@@ -80,10 +80,15 @@ body {
 
 .slick-track {
   display: flex !important;
-  /* align-items: center; */
+  align-items: center;
   justify-content: center;
 }
 
+.project-slider .slick-track {
+  display: flex !important;
+  /* align-items: center; */
+  justify-content: center;
+}
 .project-slider .slick-list {
   height: 100% !important; /* Ensure the list container takes full height */
 }
@@ -108,4 +113,33 @@ body {
   flex-shrink: 0;
   position: relative;
   min-height: 0; /* Allow content to define height */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 15s both infinite; /* Adjusted to 15s for faster movement */
+}
+
+@keyframes home-videos-row-top {
+  0% {
+    transform: translate(0);
+  }
+  50% {
+    transform: translate(calc(-150% - 128px));
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.home-videos-row-top {
+  animation: home-videos-row-top 60s linear infinite;
 }
