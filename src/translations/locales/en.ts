@@ -321,7 +321,12 @@ export default {
       ],
     },
   },
- valoroTechnologyStack:{
-  title:"Technology Stack"
- }
+  valoroTechnologyStack: {
+    title: "Technology Stack",
+  },
+  aboutNumberPeople: {
+    title:"Trusted by businesses worldwide",
+    desc:"See why thousands of companies choose Valoro for their customer engagement needs."
+  },
+  
 } as const;

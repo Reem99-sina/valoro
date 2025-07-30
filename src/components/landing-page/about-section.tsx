@@ -4,6 +4,7 @@ import React from "react";
 import { Users, Globe, Building } from "lucide-react";
 import { Box, Brain, House, Idea, Money, Network, Reward } from "@/assets/icon";
 import PartnersSection from "./partners-section";
+import { easeInOut, motion } from "framer-motion";
 
 const AboutSection = () => {
   const { t } = useTranslation();
@@ -79,35 +80,83 @@ const AboutSection = () => {
       number: 3,
     },
   ];
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: easeInOut,
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: easeInOut },
+    },
+  };
 
   return (
     <section
       id="about"
       className=" w-full flex flex-col justify-center  bg-cover min-h-screen"
     >
-      <div className="container mx-auto ">
-        <PartnersSection />
-        <div className="flex justify-center items-start  mt-10 max-w-[90vw] ">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-            {cards?.map((ele) => (
-              <div
-                key={ele?.id}
-                className={`relative flex flex-col items-center justify-center p-6 rounded-xl  bg-main-blue shadow-md transition-all duration-300 hover:scale-105 
-                ${ele?.id % 3 == 0 ? "col-span-1 sm:col-span-2 lg:col-span-2 xl:col-span-2" : "col-span-1"}
-              `}
-              >
-                <div>{ele?.icon}</div>
-                <div className=" text-3xl text-white font-black text-center">
-                  {ele?.number}
-                </div>
-                <div className="  text-sm text-main-light-blue font-black text-center">
-                  {ele?.desc}
-                </div>
-              </div>
-            ))}
+      <motion.section
+        id="about"
+        className="w-full flex flex-col justify-center  min-h-screen py-12"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={sectionVariants}
+      >
+        <div className="container mx-auto ">
+          <div className="flex flex-col gap-5 flex-1 w-auto items-center justify-center">
+            <motion.div
+              className="p-4 font-black text-main-light-blue text-4xl text-center"
+              variants={itemVariants}
+            >
+              <p>{t("aboutNumberPeople.title")}</p>
+            </motion.div>
+            <motion.p
+              className="text-text-blue text-base text-center max-w-2xl"
+              variants={itemVariants}
+            >
+              {t("aboutNumberPeople.desc")}
+            </motion.p>
           </div>
+          <motion.div
+            className="flex justify-center items-start mt-10 max-w-[90vw] mx-auto"
+            variants={sectionVariants} // Use sectionVariants for staggered children
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+              {cards?.map((ele) => (
+                <motion.div
+                  key={ele?.id}
+                  className={`relative flex flex-col items-center justify-center p-6 rounded-xl bg-main-blue shadow-md transition-all duration-300 hover:scale-105 flex-1`}
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <div>{ele?.icon}</div>
+                  <div className=" text-3xl text-white font-black text-center">
+                    {ele?.number}
+                  </div>
+                  <div className="  text-sm text-main-light-blue font-black text-center">
+                    {ele?.desc}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.section>
     </section>
   );
 };

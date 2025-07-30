@@ -73,9 +73,9 @@ export function TechnologySection() {
 
   return (
     <section id="technology" className=" bg-cover w-full  flex flex-col ">
-      <div className=" w-full container mx-auto  my-6 flex items-center gap-6">
-        <div className="flex flex-col items-start  flex-[0.2]">
-          <div className="text-center  w-max font-black text-main-light-blue text-2xl">
+      <div className=" w-full container mx-auto  my-6 flex items-center gap-6 justify-center flex-col">
+        <div className="flex flex-col items-start  ">
+          <div className="text-center  font-black text-main-light-blue text-4xl">
             {t("valoroTechnologyStack.title")}
           </div>
         </div>

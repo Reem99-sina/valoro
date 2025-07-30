@@ -10,7 +10,7 @@ import FeaturesSection from "@/components/landing-page/features-section";
 
 import IndustrySection from "@/components/landing-page/industry-section";
 import MainHeader from "@/components/landing-page/main-header";
-
+import PartnersSection from "@/components/landing-page/partners-section";
 
 import ProjectsSection from "@/components/landing-page/projects-section";
 import ServicesSection from "@/components/landing-page/services-section";
@@ -21,16 +21,17 @@ import Footer from "@/components/shared/footer.component";
 
 export default function Home() {
   return (
-    <div className=" w-full bg-secondary-light-blue">
+    <div className=" w-full bg-gradient-to-r from-blue-100 via-white to-blue-200">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start ">
-        <div className="bg-[url('/header.PNG')] bg-cover w-full">
-          <div className="container mx-auto">
+        <div className="bg-[url('/bg-main.jpg')] bg-cover w-full">
+          <div className="container mx-auto min-h-screen">
             <Header />
             <MainHeader />
           </div>
         </div>
 
         <AboutSection />
+        <PartnersSection />
         <ProjectsSection />
         <IndustrySection />
         <TechnologySection />
@@ -41,7 +42,7 @@ export default function Home() {
         <FeaturesSection />
         <AiSection />
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

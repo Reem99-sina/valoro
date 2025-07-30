@@ -2,6 +2,7 @@ import { Info } from "lucide-react";
 import Image from "next/image";
 import ai from "@/assets/image/ai.png";
 import { useTranslation } from "@/translations/clients";
+import { easeInOut, motion } from "framer-motion";
 import {
   Aws,
   Express,
@@ -127,28 +128,66 @@ export function AiSection() {
       ],
     },
   ];
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: easeInOut,
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: easeInOut },
+    },
+  };
 
   return (
-    <section id="ai" className=" bg-cover w-full  flex flex-col justify-center">
+    <motion.section
+      id="ai"
+      className="bg-gradient-to-r from-blue-100 via-white to-blue-200 w-full flex flex-col justify-center py-12"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }} // Adjust amount as needed
+      variants={sectionVariants}
+    >
       <div className="container mx-auto ">
-        <div className="flex items-center gap-5 justify-center min-h-screen">
-          <div className="flex flex-col gap-5 flex-1 w-auto">
-            <div className="text-center  w-max font-black text-main-light-blue text-4xl">
+        <div className="flex flex-col gap-5 justify-center min-h-screen">
+          <div className="flex flex-col gap-5 justify-center items-center">
+            <motion.div
+              className="text-center w-max font-black text-main-light-blue text-4xl"
+              variants={itemVariants}
+            >
               {t("aiProjects.title")}
-            </div>
+            </motion.div>
+          </div>
+          <div className=" flex items-center gap-5 ">
             <div className="flex flex-col gap-3 flex-1">
               {aiProject?.map((ele, index) => (
-                <ul className="list-disc" key={index}>
+                <motion.ul
+                  className="list-disc"
+                  key={index}
+                  variants={itemVariants}
+                >
                   <div className="  text-start flex justify-start items-center gap-3">
-                    <Info className=" text-main-light-blue" />
+                    <Info className=" text-main-light-blue animate-bounce" />
                     <p className="text-main-blue font-bold">{ele?.title}</p>
                   </div>
-                </ul>
+                </motion.ul>
               ))}
             </div>
-          </div>
-          <div>
-            <Image src={ai} width={250} height={200} alt="blockchainImage" />
+            <motion.div variants={itemVariants}>
+              <Image src={ai} width={250} height={200} alt="blockchainImage" />
+            </motion.div>
           </div>
         </div>
       </div>
@@ -156,6 +195,6 @@ export function AiSection() {
       <div className="flex flex-col gap-5  w-auto py-6 min-h-screen items-center justify-center">
         <TitleSliderComponet title={t("aiProjects.title")} data={projects} />
       </div>
-    </section>
+    </motion.section>
   );
 }

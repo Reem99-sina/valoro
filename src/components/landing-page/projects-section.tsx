@@ -16,8 +16,9 @@ import {
   Yallagive,
 } from "@/assets/icon";
 import { useTranslation } from "@/translations/clients";
+import { easeInOut } from "framer-motion";
 import React from "react";
-
+import { motion } from "framer-motion";
 
 const ProjectsSection = () => {
   const { t } = useTranslation();
@@ -86,28 +87,71 @@ const ProjectsSection = () => {
       position: { top: "80%", right: "16%" }, // Adjusted position
     },
   ];
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: easeInOut,
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: easeInOut },
+    },
+  };
+
+  const logoVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, ease: easeInOut },
+    },
+  };
 
   return (
-    <section
+    <motion.section
       id="project"
-      className="relative bg-cover w-full min-h-screen flex flex-col justify-center"
+      className="relative w-full min-h-screen flex flex-col justify-center py-12"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }} // Adjust amount as needed
+      variants={sectionVariants}
     >
       <div className="container mx-auto flex flex-col items-center gap-5 justify-center">
         <div className="flex flex-col gap-5 flex-1 w-auto items-center justify-center">
-          <div className="p-4 w-max font-black text-main-light-blue text-4xl">
+          <motion.div
+            className="p-4 font-black text-main-light-blue text-4xl text-center"
+            variants={itemVariants}
+          >
             <p>{t("partners.subtitle")}</p>
-          </div>
-          <p className="text-text-blue text-base text-center">
+          </motion.div>
+          <motion.p
+            className="text-text-blue text-base text-center max-w-2xl"
+            variants={itemVariants}
+          >
             {t("partners.description")}
-          </p>
+          </motion.p>
         </div>
-        <div className="absolute top-[60%] left-1/2 -translate-x-1/2 flex flex-col items-center ">
+        <motion.div
+          className="absolute top-[60%] left-1/2 -translate-x-1/2 flex flex-col items-center"
+          variants={itemVariants}
+        >
           <V />
-        </div>
+        </motion.div>
         <div className="relative flex justify-center items-start px-6 w-full min-h-[50vh] bg-[url('/tech.png')] bg-cover">
-       
           {projectLogo?.map((ele) => (
-            <a
+            <motion.a
               key={ele.id}
               className="absolute flex flex-col items-center text-center p-2 rounded-lg transition-all duration-300 hover:scale-110 z-10"
               style={{
@@ -121,14 +165,16 @@ const ProjectsSection = () => {
                     : "",
                 width: "120px", // Fixed width for consistency
               }}
+              variants={logoVariants}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
             >
               {ele?.icon}
-            </a>
+            </motion.a>
           ))}
-         
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

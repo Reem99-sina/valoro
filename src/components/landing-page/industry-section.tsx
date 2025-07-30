@@ -1,5 +1,6 @@
 import { useTranslation } from "@/translations/clients";
-
+import { easeInOut } from "framer-motion";
+import { motion } from "framer-motion"
 import React from "react";
 
 const IndustrySection = () => {
@@ -7,88 +8,105 @@ const IndustrySection = () => {
   const dataIndustry = [
     {
       title: t("industries.education"),
-      icon: "🎓",
+      
       position: { top: "10%", left: "16%" },
     },
     {
       title: t("industries.crowdfunding"),
-      icon: "💰",
+      
       position: { top: "35%", left: "5%" },
     },
     {
       title: t("industries.fintech"),
-      icon: "🏦",
+      
       position: { top: "35%", left: "32%" },
     },
     {
       title: t("industries.government"),
-      icon: "🏛️",
-      position: { top: "56%", left: "48%" },
+      
+      position: { top: "10%", left: "43%" },
     },
     {
       title: t("industries.healthcare"),
-      icon: "⚕️",
+      
       position: { top: "10%", right: "20%" },
     },
     {
       title: t("industries.islamicFinance"),
-      icon: "🕌",
+      
       position: { top: "35%", right: "10%" },
     },
     {
       title: t("industries.realEstate"),
-      icon: "🏛️",
+      
       position: { top: "35%", right: "34%" },
     },
   ];
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: easeInOut,
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: easeInOut} },
+  }
 
   return (
-    <section
-      id="industry"
-      className="bg-cover w-full min-h-screen flex flex-col justify-center"
+     <motion.section
+      id="featured-in" // Changed ID to avoid conflict with previous "industry"
+      className="relative  w-full min-h-screen flex flex-col justify-center py-12"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }} // Adjust amount as needed
+      variants={sectionVariants}
     >
       <div className="container mx-auto flex items-center gap-5 justify-center flex-col ">
         <div className="flex flex-col gap-5 flex-[0.5] w-auto justify-center items-center">
-          <div className=" font-black text-main-light-blue text-4xl text-center ">
+           <motion.div className="font-black text-main-light-blue text-4xl text-center" variants={itemVariants}>
             <p>{t("featuredIn.subtitle")}</p>
-          </div>
-          <p className="text-text-blue text-lg text-center">
+          </motion.div>
+          <motion.p className="text-text-blue text-lg text-center max-w-2xl" variants={itemVariants}>
             {t("featuredIn.description")}
-          </p>
+          </motion.p>
         </div>
 
         <div className="relative flex flex-wrap justify-center items-center gap-8 w-full min-h-[50vh] bg-[url('/tech.png')] bg-cover">
           {dataIndustry?.map((ele) => (
-            <div
+             <motion.div
               key={ele?.title}
-              className="absolute flex flex-col items-center justify-center p-2 rounded-lg transition-all duration-300 hover:scale-110 z-10 bg-main-dark-blue border border-border-light"
+              className="absolute flex flex-col items-center justify-center p-2 rounded-lg transition-all duration-300 hover:scale-110 z-10 bg-white gap-3 shadow-lg"
               style={{
                 top: ele.position.top,
                 left: ele.position.left,
                 right: ele.position.right,
-                transform: ele.position.left
-                  ? "translateX(-50%)"
-                  : ele.position.right
-                    ? "translateX(50%)"
-                    : "",
+                transform: ele.position.left ? "translateX(-50%)" : ele.position.right ? "translateX(50%)" : "",
                 width: "140px", // Fixed width for consistency
                 height: "70px", // Fixed height for consistency
               }}
+              variants={itemVariants}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <div
-                className={`w-10 h-10 rounded-lg bg-gradient-to-r from-main-blue to-main-light-blue  flex items-center justify-center text-white text-lg shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
-              >
-                {ele?.icon}
-              </div>
+              
 
-              <p className=" font-bold whitespace-nowrap text-xs">
+              <p className=" font-bold whitespace-nowrap text-xs text-main-blue">
                 {ele?.title}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

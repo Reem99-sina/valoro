@@ -12,9 +12,9 @@ import { useTranslation } from "@/translations/clients";
 
 const Footer = () => {
   const { t } = useTranslation();
-  
+
   return (
-    <footer className="bg-main-blue text-white">
+    <footer className="bg-gradient-to-r from-main-blue via-text-blue to-main-light-blue text-white rounded-t-3xl shadow-2xl mt-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -25,30 +25,15 @@ const Footer = () => {
             <p className=" mb-6 max-w-md leading-relaxed">{t("hero.title")}</p>
 
             <div className="flex space-x-4">
-              <a
-                href="#"
-                className="w-10 h-10 bg-main-light-blue rounded-full flex items-center justify-center hover:bg-main-dark-blue transition-colors duration-200"
-              >
-                <Facebook size={20} />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-main-light-blue rounded-full flex items-center justify-center hover:bg-main-dark-blue transition-colors duration-200"
-              >
-                <Twitter size={20} />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-main-light-blue rounded-full flex items-center justify-center hover:bg-main-dark-blue transition-colors duration-200"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-main-light-blue rounded-full flex items-center justify-center hover:bg-main-dark-blue transition-colors duration-200"
-              >
-                <Instagram size={20} />
-              </a>
+              {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="w-10 h-10 bg-main-light-blue rounded-full flex items-center justify-center hover:bg-main-dark-blue transition-colors duration-200"
+                >
+                  <Icon size={20} />
+                </a>
+              ))}
             </div>
           </div>
 
@@ -58,7 +43,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="#"
+                  href="#about"
                   className=" hover:text-blue-400 transition-colors duration-200"
                 >
                   About Us
@@ -66,7 +51,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#industry"
                   className=" hover:text-blue-400 transition-colors duration-200"
                 >
                   Services
@@ -74,7 +59,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#project"
                   className=" hover:text-blue-400 transition-colors duration-200"
                 >
                   Projects
@@ -113,7 +98,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-white">
+        <div className="border-t border-text-blue mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-white">
           <p className=" text-sm">© 2025 Valoro. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a

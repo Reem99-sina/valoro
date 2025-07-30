@@ -19,7 +19,7 @@ const PartnersSection = () => {
     dots: false,
     infinite: true,
     speed: 500, // Speed of the transition animation (in ms)
-    slidesToShow: 5, // Number of slides to show at once
+    slidesToShow: 3, // Number of slides to show at once
     slidesToScroll: 1, // Number of slides to scroll at once for a smoother effect
     autoplay: true,
     autoplaySpeed: 0, // Set to 0 for continuous movement (relies on `speed` for transition duration)
@@ -30,7 +30,7 @@ const PartnersSection = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
         },
       },
       {
@@ -49,16 +49,16 @@ const PartnersSection = () => {
   };
 
   return (
-    <div className=" w-full container mx-auto  my-6 flex items-center gap-6">
-      <div className="flex flex-col items-start  flex-[0.2]">
-        <div className="text-center  font-black text-main-light-blue text-2xl whitespace-nowrap">
+    <div className=" w-full container mx-auto  my-6 flex items-center gap-6 flex-col ">
+      <div className="flex flex-col items-start  ">
+        <div className="text-center  font-black text-main-light-blue text-4xl whitespace-nowrap">
           {t("partners.title")}
         </div>
       </div>
 
       <Slider {...settings} className="max-w-[60vw] items-center">
         {icons?.map((ele) => (
-          <div className="flex  justify-center px-4 h-full gap-3" key={ele?.id}>
+          <div className="flex  justify-center mx-4 h-full gap-3" key={ele?.id}>
             {ele?.component}
           </div>
         ))}
