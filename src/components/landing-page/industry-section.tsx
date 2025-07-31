@@ -58,19 +58,19 @@ const IndustrySection = () => {
       className="relative  w-full min-h-screen flex flex-col justify-center py-12"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }} // Adjust amount as needed
+      // viewport={{ once: true, amount: 0.1 }} // Adjust amount as needed
       variants={sectionVariants}
     >
       <div className="container mx-auto flex items-center gap-5 justify-center flex-col ">
         <div className="flex flex-col gap-5 flex-[0.5] w-auto justify-center items-center">
           <motion.div
-            className="font-black text-main-light-blue text-4xl text-center"
+            className="font-black text-main-blue text-4xl text-center"
             variants={itemVariants}
           >
             <p>{t("featuredIn.subtitle")}</p>
           </motion.div>
           <motion.p
-            className="text-text-blue text-md text-center max-w-2xl"
+            className="text-main-blue text-lg text-center max-w-2xl"
             variants={itemVariants}
           >
             {t("featuredIn.description")}

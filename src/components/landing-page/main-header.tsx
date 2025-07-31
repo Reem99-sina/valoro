@@ -52,7 +52,7 @@ const MainHeader = () => {
           className="mt-6 max-w-2xl text-lg sm:text-xl  mx-auto text-center drop-shadow-lg"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.5 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
         >
           {t("about.description")}
         </motion.p>

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import clsx from "clsx";
 
-import { useEffect, useMemo, useState } from "react";
+import {  useMemo } from "react";
 import { VoloroLogo } from "@/assets/icon";
 import { Button } from "../shared/button.component";
 import { useTranslation } from "@/translations/clients";
@@ -33,7 +33,7 @@ export const Header = () => {
       {
         id: 4,
         text: t("nav.services"),
-        to: "#services",
+        to: "#industry",
       },
     ];
   }, []);
@@ -62,7 +62,7 @@ export const Header = () => {
               <Link
                 href={link.to as string}
                 className={clsx(
-                  "relative text-md font-bold text-white  capitalize whitespace-nowrap"
+                  "relative text-lg font-bold text-white  capitalize whitespace-nowrap"
                 )}
               >
                 {link.text}

@@ -45,20 +45,20 @@ export function BlogCard({
       )}
 
       <div className=" flex flex-col justify-center items-start h-full px-5 pb-5">
-        <h3 className="text-main-light-blue text-2xl font-bold  mb-4">
+        <h3 className="text-main-blue text-lg font-bold  mb-4">
           {title}
         </h3>
-        <p className=" text-main-blue text-sm  mb-4">{desc}</p>
+        <p className=" text-main-blue text-md  mb-4">{desc}</p>
         {tech && (
           <div className="mt-2">
-            <h4 className="text-main-light-blue text-2xl mb-2 font-bold">
+            <h4 className="text-main-blue text-lg mb-2 font-bold">
               {t("techStack")}
             </h4>
             <div className="flex flex-wrap gap-2 justify-center">
               {tech?.map((ele) => (
                 <span
                   key={ele?.id}
-                  className=" text-blue-200 px-3 py-1 rounded-full text-sm"
+                  className=" text-blue-200 px-3 py-1 rounded-full text-md"
                 >
                   {ele?.component}
                 </span>

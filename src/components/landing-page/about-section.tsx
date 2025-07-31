@@ -3,7 +3,6 @@ import { useTranslation } from "@/translations/clients";
 import React from "react";
 import { Users, Globe, Building } from "lucide-react";
 import { Box, Brain, House, Idea, Money, Network, Reward } from "@/assets/icon";
-import PartnersSection from "./partners-section";
 import { easeInOut, motion } from "framer-motion";
 
 const AboutSection = () => {
@@ -12,23 +11,23 @@ const AboutSection = () => {
     {
       id: 1,
       title: "",
-      icon: <Users className="w-12 h-12 text-cyan-400 mx-auto mb-4" />,
+      icon: <Users className="w-12 h-12  mx-auto mb-4" />,
       desc: t("stats.customers"),
       number: "100+",
     },
     {
       id: 2,
       title: "",
-      icon: <Globe className="w-12 h-12 text-cyan-400 mx-auto mb-4" />,
+      icon: <Globe className="w-12 h-12  mx-auto mb-4" />,
       desc: t("stats.countries"),
-      number: "100+",
+      number: "10+",
     },
     {
       id: 3,
       title: "",
-      icon: <Building className="w-12 h-12 text-cyan-400 mx-auto mb-4" />,
+      icon: <Building className="w-12 h-12  mx-auto mb-4" />,
       desc: t("stats.people"),
-      number: "100+",
+      number: "1000+",
     },
     {
       id: 4,
@@ -113,19 +112,20 @@ const AboutSection = () => {
         className="w-full flex flex-col justify-center  min-h-screen py-12"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
+        layoutScroll={true}
+        viewport={{ once: true, amount: 0}}
         variants={sectionVariants}
       >
         <div className="container mx-auto ">
           <div className="flex flex-col gap-5 flex-1 w-auto items-center justify-center">
             <motion.div
-              className="p-4 font-black text-main-light-blue text-4xl text-center"
+              className="p-4 font-black text-main-blue text-4xl text-center"
               variants={itemVariants}
             >
               <p>{t("aboutNumberPeople.title")}</p>
             </motion.div>
             <motion.p
-              className="text-text-blue text-md text-center max-w-2xl"
+              className="text-main-blue text-lg text-center max-w-2xl"
               variants={itemVariants}
             >
               {t("aboutNumberPeople.desc")}

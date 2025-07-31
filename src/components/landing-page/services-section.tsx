@@ -53,14 +53,14 @@ const ServicesSection = () => {
       className=" w-full min-h-[90vh] flex flex-col justify-center py-12"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }} // Adjust amount as needed
+      // viewport={{ once: true, amount: 0.1 }} // Adjust amount as needed
       variants={sectionVariants}
     >
       <div className="container mx-auto flex items-center gap-5 justify-center flex-col">
         <div className="flex flex-col gap-5 flex-1 w-auto items-center">
-          <div className="text-center p-4 w-max font-black text-main-light-blue text-4xl">
+          <div className="text-center p-4 w-max font-black text-main-blue text-4xl">
             <motion.div
-              className="text-center p-4 w-max font-black text-main-light-blue text-4xl"
+              className="text-center p-4 w-max font-black text-main-blue text-4xl"
               variants={itemVariants}
             >
               {" "}
@@ -83,12 +83,12 @@ const ServicesSection = () => {
                 <div className="w-12 h-12 bg-gradient-to-r from-main-blue to-main-light-blue rounded-lg flex items-center justify-center mb-6">
                   {ele?.icon}
                 </div>
-                <p className=" font-bold text-main-light-blue">{ele?.title}</p>
+                <p className=" font-bold text-main-light-blue text-lg">{ele?.title}</p>
 
                 {ele?.desc?.split(".")?.map(
                   (ele, index) =>
                     ele && (
-                      <li className=" text-sm  ml-4" key={index}>
+                      <li className=" text-md  ml-4" key={index}>
                         {ele}
                       </li>
                     )

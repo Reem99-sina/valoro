@@ -157,14 +157,14 @@ export function AiSection() {
       className="bg-gradient-to-r from-blue-100 via-white to-blue-200 w-full flex flex-col justify-center py-12"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }} // Adjust amount as needed
+      // viewport={{ once: true, amount: 0.1 }} // Adjust amount as needed
       variants={sectionVariants}
     >
       <div className="container mx-auto ">
         <div className="flex flex-col gap-5 justify-center min-h-screen">
           <div className="flex flex-col gap-5 justify-center items-center">
             <motion.div
-              className="text-center w-max font-black text-main-light-blue text-4xl"
+              className="text-center w-max font-black text-main-blue text-4xl"
               variants={itemVariants}
             >
               {t("aiProjects.title")}

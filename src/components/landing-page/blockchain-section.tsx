@@ -84,7 +84,7 @@ const BlockchainSection = () => {
         className=" w-full flex flex-col justify-center py-12"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }} // Adjust amount as needed
+        // viewport={{ once: true, amount: 0.1 }} // Adjust amount as needed
         variants={sectionVariants}
       >
         <div className="container mx-auto ">
@@ -93,12 +93,12 @@ const BlockchainSection = () => {
               className="flex flex-col gap-5 items-center"
               variants={itemVariants}
             >
-              <div className="text-justify   font-black text-main-light-blue text-4xl">
+              <div className="text-justify   font-black text-main-blue text-4xl">
                 {t("blockchainProjects.title")}
               </div>
             </motion.div>
             <div className="flex justify-between gap-5 md:flex-nowrap flex-wrap">
-              <div className="flex flex-col gap-5  text-md justify-center items-start">
+              <div className="flex flex-col gap-5  text-lg justify-center items-start">
                 {blockchainProject?.map((ele, index) => (
                   <motion.ul
                     className="list-disc"
@@ -129,14 +129,14 @@ const BlockchainSection = () => {
         className=" w-full flex flex-col justify-center"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }} // Adjust amount as needed
+        // viewport={{ once: true, amount: 0.1 }} // Adjust amount as needed
         variants={sectionVariants}
       >
         <div className="container mx-auto min-h-screen ">
           <div className="flex flex-col items-center gap-5 justify-center">
             <div className="flex flex-col gap-5  w-auto py-6  justify-center">
               <motion.div
-                className="text-center font-black text-main-light-blue text-2xl md:text-4xl"
+                className="text-center font-black text-main-blue text-2xl md:text-4xl"
                 variants={itemVariants}
               >
                 {t("blockchainProfessionalServices.title")}
@@ -153,14 +153,14 @@ const BlockchainSection = () => {
                     <div className="w-12 h-12 bg-gradient-to-r from-main-blue to-main-light-blue rounded-lg flex items-center justify-center mb-6">
                       {ele?.icon}
                     </div>
-                    <p className=" font-bold text-main-light-blue">
+                    <p className=" font-bold text-main-light-blue text-lg">
                       {ele?.title}
                     </p>
 
                     {ele?.desc?.map(
                       (elem, index) =>
                         ele && (
-                          <li className=" text-sm  ml-4" key={index}>
+                          <li className=" text-md  ml-4" key={index}>
                             {elem}
                           </li>
                         )

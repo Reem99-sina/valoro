@@ -51,7 +51,7 @@ const PartnersSection = () => {
   return (
     <div className=" w-full container mx-auto  my-6 flex items-center gap-6 flex-col ">
       <div className="flex flex-col items-start  ">
-        <div className="text-center  font-black text-main-light-blue text-4xl whitespace-nowrap">
+        <div className="text-center  font-black text-main-blue text-4xl whitespace-nowrap">
           {t("partners.title")}
         </div>
       </div>

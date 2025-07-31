@@ -26,7 +26,7 @@ export const Button: FC<Props> = ({
     <button
       className={clsx(
         "flex w-full items-center justify-center rounded bg-main-blue p-3 text-white",
-        "text-md font-bold",
+        "text-lg font-bold",
         "dark:bg-primary-dark dark:text-bg-dark dark:hover:bg-hover-dark",
         "hover:bg-blend-color-burn ",
         disabled && "bg-black bg-opacity-30",
