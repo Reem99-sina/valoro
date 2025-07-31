@@ -44,18 +44,18 @@ const DigitalTransformation = () => {
       className="w-full flex flex-col justify-center bg-gradient-to-r from-blue-100 via-white to-blue-200 min-h-[90vh] py-12"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }} // Adjust amount as needed
+      // viewport={{ once: true, amount: 0.1 }} // Adjust amount as needed
       variants={sectionVariants}
     >
       <div className="container mx-auto flex flex-col gap-5 justify-center text-center">
         <div className="flex flex-col gap-5 flex-1 w-auto bg-opacity-80  p-8">
           <motion.div
-            className="text-center font-black text-main-light-blue text-4xl"
+            className="text-center font-black text-main-blue text-4xl"
             variants={itemVariants}
           >
             <p>{t("digitalTransformation.title")}</p>
           </motion.div>
-          <motion.p className="text-main-blue text-md" variants={itemVariants}>
+          <motion.p className="text-main-blue text-lg" variants={itemVariants}>
             {t("digitalTransformation.subtitle")}
           </motion.p>
         </div>
@@ -65,13 +65,13 @@ const DigitalTransformation = () => {
               <motion.ul key={index} variants={itemVariants}>
                 <div className=" p-4  flex justify-start items-center gap-3">
                   <Info className=" text-main-light-blue animate-bounce" />
-                  <p className="text-main-blue font-bold">{ele?.title}</p>
+                  <p className="text-main-blue font-bold text-lg">{ele?.title}</p>
                 </div>
                 {ele?.desc?.split(".")?.map(
                   (elem, ind) =>
                     elem && (
                       <li
-                        className="text-main-blue ml-12 transition-colors duration-200 hover:text-main-light-blue"
+                        className="text-main-blue ml-12 transition-colors duration-200 hover:text-main-light-blue text-md"
                         key={ind}
                       >
                         {elem}

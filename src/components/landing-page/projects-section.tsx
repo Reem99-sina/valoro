@@ -19,7 +19,6 @@ import { useTranslation } from "@/translations/clients";
 import { easeInOut } from "framer-motion";
 import React from "react";
 import { motion } from "framer-motion";
-import clsx from "clsx";
 
 const ProjectsSection = () => {
   const { t } = useTranslation();
@@ -132,20 +131,20 @@ const ProjectsSection = () => {
       className="relative w-full min-h-screen flex flex-col justify-center py-12"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      // viewport={{ once: true, amount: 0.1 }}
       variants={sectionVariants}
     >
       <div className="container mx-auto flex flex-col items-center gap-5 justify-center">
         {/* العنوان والوصف */}
         <div className="flex flex-col gap-5 flex-1 w-auto items-center justify-center">
           <motion.div
-            className="p-4 font-black text-main-light-blue text-4xl text-center"
+            className="p-4 font-black text-main-blue text-4xl text-center"
             variants={itemVariants}
           >
             <p>{t("partners.subtitle")}</p>
           </motion.div>
           <motion.p
-            className="text-text-blue text-md text-center max-w-2xl"
+            className="text-main-blue text-lg text-center max-w-2xl"
             variants={itemVariants}
           >
             {t("partners.description")}
