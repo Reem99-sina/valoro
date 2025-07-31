@@ -89,7 +89,10 @@ const BlockchainSection = () => {
       >
         <div className="container mx-auto ">
           <div className="flex  flex-col gap-5 justify-center min-h-screen">
-            <motion.div className="flex flex-col gap-5 items-center" variants={itemVariants}>
+            <motion.div
+              className="flex flex-col gap-5 items-center"
+              variants={itemVariants}
+            >
               <div className="text-justify   font-black text-main-light-blue text-4xl">
                 {t("blockchainProjects.title")}
               </div>
@@ -129,40 +132,44 @@ const BlockchainSection = () => {
         viewport={{ once: true, amount: 0.2 }} // Adjust amount as needed
         variants={sectionVariants}
       >
-        <div className="container mx-auto min-h-screen flex flex-col items-center gap-5 justify-center">
-        <div className="flex flex-col gap-5  w-auto py-6  justify-center">
-          <motion.div
-            className="text-center font-black text-main-light-blue text-4xl"
-            variants={itemVariants}
-          >
-            {t("blockchainProfessionalServices.title")}
-          </motion.div>
-          <motion.div
-            className="flex flex-col md:flex-row gap-5 flex-wrap md:flex-nowrap"
-            variants={sectionVariants}
-          >
-            {blockChainServices?.map((ele, index) => (
-              <ul
-                className="bg-main-blue   rounded-2xl p-8  transition-all duration-300 hover:scale-105 list-disc w-full"
-                key={index}
+        <div className="container mx-auto min-h-screen ">
+          <div className="flex flex-col items-center gap-5 justify-center">
+            <div className="flex flex-col gap-5  w-auto py-6  justify-center">
+              <motion.div
+                className="text-center font-black text-main-light-blue text-2xl md:text-4xl"
+                variants={itemVariants}
               >
-                <div className="w-12 h-12 bg-gradient-to-r from-main-blue to-main-light-blue rounded-lg flex items-center justify-center mb-6">
-                  {ele?.icon}
-                </div>
-                <p className=" font-bold text-main-light-blue">{ele?.title}</p>
+                {t("blockchainProfessionalServices.title")}
+              </motion.div>
+              <motion.div
+                className="flex flex-col md:flex-row gap-5 flex-wrap md:flex-nowrap"
+                variants={sectionVariants}
+              >
+                {blockChainServices?.map((ele, index) => (
+                  <ul
+                    className="bg-main-blue   rounded-2xl p-8  transition-all duration-300 hover:scale-105 list-disc w-full"
+                    key={index}
+                  >
+                    <div className="w-12 h-12 bg-gradient-to-r from-main-blue to-main-light-blue rounded-lg flex items-center justify-center mb-6">
+                      {ele?.icon}
+                    </div>
+                    <p className=" font-bold text-main-light-blue">
+                      {ele?.title}
+                    </p>
 
-                {ele?.desc?.map(
-                  (elem, index) =>
-                    ele && (
-                      <li className=" text-sm  ml-4" key={index}>
-                        {elem}
-                      </li>
-                    )
-                )}
-              </ul>
-            ))}
-          </motion.div>
-        </div>
+                    {ele?.desc?.map(
+                      (elem, index) =>
+                        ele && (
+                          <li className=" text-sm  ml-4" key={index}>
+                            {elem}
+                          </li>
+                        )
+                    )}
+                  </ul>
+                ))}
+              </motion.div>
+            </div>
+          </div>
         </div>
       </motion.section>
     </>

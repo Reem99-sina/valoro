@@ -32,19 +32,6 @@ const FeaturesSection = () => {
 
   const projects = [
     {
-      title: t("oneStopShopSystem.title"),
-      desc: t("oneStopShopSystem.duTitle"),
-      image: du,
-
-      projectOverview: t("oneStopShopSystem.duText"),
-      tech: [
-        { id: "node", component: <Node /> },
-        { id: "react", component: <ReactLogo /> },
-        { id: "docker", component: <Doker /> }, // If this is a typo, rename to <Docker />
-        { id: "ethereum", component: <Ethereum /> },
-      ],
-    },
-    {
       title: t("ideaToMarket.title"),
       desc: t("ideaToMarket.projectOverviewTitle"),
       projectOverview: t("ideaToMarket.projectOverviewText"),
@@ -67,6 +54,19 @@ const FeaturesSection = () => {
         {
           icon: <Pdesc />,
         },
+      ],
+    },
+    {
+      title: t("oneStopShopSystem.title"),
+      desc: t("oneStopShopSystem.duTitle"),
+      image: du,
+
+      projectOverview: t("oneStopShopSystem.duText"),
+      tech: [
+        { id: "node", component: <Node /> },
+        { id: "react", component: <ReactLogo /> },
+        { id: "docker", component: <Doker /> }, // If this is a typo, rename to <Docker />
+        { id: "ethereum", component: <Ethereum /> },
       ],
     },
     {
