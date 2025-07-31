@@ -125,7 +125,7 @@ const AboutSection = () => {
               <p>{t("aboutNumberPeople.title")}</p>
             </motion.div>
             <motion.p
-              className="text-text-blue text-base text-center max-w-2xl"
+              className="text-text-blue text-md text-center max-w-2xl"
               variants={itemVariants}
             >
               {t("aboutNumberPeople.desc")}

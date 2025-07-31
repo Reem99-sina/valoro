@@ -20,33 +20,52 @@ export function BlogCard({
   const { t } = useTranslation();
 
   return (
-    <div className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-blue-200 transform hover:-translate-y-2">
-      <div className="flex flex-col-reverse md:flex-row items-stretch w-full min-w-[700px] min-h-[600px]">
-        {/* النص */}
-        <div className="flex flex-col justify-evenly gap-3 p-6 md:w-1/2">
-          <h3 className="text-xl font-bold text-main-blue leading-tight">{title}</h3>
-          <li className="text-gray-500 text-sm leading-relaxed">{desc}</li>
-          {tech && (
-            <div className="space-y-3 mt-4">
-              <h3 className="text-xl font-bold text-main-blue leading-tight">{t("techStack")}</h3>
-              <div className="text-xl font-bold leading-tight flex items-center gap-3 flex-wrap">
-                {tech?.map((ele) => (
-                  <div key={ele?.id}>{ele?.component}</div>
-                ))}
-              </div>
-            </div>
+    <div
+      className={clsx(
+        "relative bg-white rounded-3xl shadow-2xl overflow-hidden   flex  items-center min-h-[400px]",
+        index % 3 === 2 ? "flex-col md:flex-row-reverse w-full" : "flex-col"
+      )}
+    >
+      {/* صورة دائرية في الأعلى */}
+      {imageUrl && (
+        <div
+          className={clsx(
+            "w-full  overflow-hidden bg-main-blue flex justify-center",
+            index % 3 === 2 ? "h-full mb-0" : "h-80"
           )}
-        </div>
-        {/* الصورة */}
-        {imageUrl&&<div className="md:w-1/2 w-full flex items-center justify-center bg-main-blue">
+        >
           <Image
             src={imageUrl || "/placeholder.svg"}
             alt={title}
-            width={200}
-            height={200}
-            className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+            width={150}
+            height={100}
+            className=" object-contain group-hover:scale-110 transition-transform duration-500"
           />
-        </div>}
+        </div>
+      )}
+
+      <div className=" flex flex-col justify-center items-start h-full px-5 pb-5">
+        <h3 className="text-main-light-blue text-2xl font-bold  mb-4">
+          {title}
+        </h3>
+        <p className=" text-main-blue text-sm  mb-4">{desc}</p>
+        {tech && (
+          <div className="mt-2">
+            <h4 className="text-main-light-blue text-2xl mb-2 font-bold">
+              {t("techStack")}
+            </h4>
+            <div className="flex flex-wrap gap-2 justify-center">
+              {tech?.map((ele) => (
+                <span
+                  key={ele?.id}
+                  className=" text-blue-200 px-3 py-1 rounded-full text-sm"
+                >
+                  {ele?.component}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

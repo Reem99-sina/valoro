@@ -19,6 +19,7 @@ import { useTranslation } from "@/translations/clients";
 import { easeInOut } from "framer-motion";
 import React from "react";
 import { motion } from "framer-motion";
+import clsx from "clsx";
 
 const ProjectsSection = () => {
   const { t } = useTranslation();
@@ -87,6 +88,12 @@ const ProjectsSection = () => {
       position: { top: "80%", right: "16%" }, // Adjusted position
     },
   ];
+  const leftLogos = projectLogo.filter(
+    (logo) => logo.position.left !== undefined
+  );
+  const rightLogos = projectLogo.filter(
+    (logo) => logo.position.right !== undefined
+  );
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -125,10 +132,11 @@ const ProjectsSection = () => {
       className="relative w-full min-h-screen flex flex-col justify-center py-12"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }} // Adjust amount as needed
+      viewport={{ once: true, amount: 0.2 }}
       variants={sectionVariants}
     >
       <div className="container mx-auto flex flex-col items-center gap-5 justify-center">
+        {/* العنوان والوصف */}
         <div className="flex flex-col gap-5 flex-1 w-auto items-center justify-center">
           <motion.div
             className="p-4 font-black text-main-light-blue text-4xl text-center"
@@ -137,41 +145,45 @@ const ProjectsSection = () => {
             <p>{t("partners.subtitle")}</p>
           </motion.div>
           <motion.p
-            className="text-text-blue text-base text-center max-w-2xl"
+            className="text-text-blue text-md text-center max-w-2xl"
             variants={itemVariants}
           >
             {t("partners.description")}
           </motion.p>
         </div>
-        <motion.div
-          className="absolute top-[60%] left-1/2 -translate-x-1/2 flex flex-col items-center"
-          variants={itemVariants}
-        >
-          <V />
-        </motion.div>
-        <div className="relative flex justify-center items-start px-6 w-full min-h-[50vh] bg-[url('/tech.png')] bg-cover">
-          {projectLogo?.map((ele) => (
-            <motion.a
-              key={ele.id}
-              className="absolute flex flex-col items-center text-center p-2 rounded-lg transition-all duration-300 hover:scale-110 z-10"
-              style={{
-                top: ele.position.top,
-                left: ele.position.left,
-                right: ele.position.right,
-                transform: ele.position.left
-                  ? "translateX(-50%)"
-                  : ele.position.right
-                    ? "translateX(50%)"
-                    : "",
-                width: "120px", // Fixed width for consistency
-              }}
-              variants={logoVariants}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              {ele?.icon}
-            </motion.a>
-          ))}
+
+        {/* الشبكة الرئيسية */}
+        <div className="flex  gap-6 items-center justify-around w-full px-6 py-12 bg-[url('/tech.png')] bg-cover rounded-2xl">
+          {/* العمود الأول */}
+          <div className="grid grid-cols-2 md:grid-cols-3 items-end gap-6">
+            {leftLogos.map((logo, i) => (
+              <motion.div
+                key={i}
+                variants={logoVariants}
+                whileHover={{ scale: 1.1 }}
+              >
+                {logo.icon}
+              </motion.div>
+            ))}
+          </div>
+
+          {/* المنتصف (رمز V) */}
+          <div className="flex justify-center">
+            <V />
+          </div>
+
+          {/* العمود الثالث */}
+          <div className="grid grid-cols-2 md:grid-cols-3 items-end gap-6">
+            {rightLogos.map((logo, i) => (
+              <motion.div
+                key={i}
+                variants={logoVariants}
+                whileHover={{ scale: 1.1 }}
+              >
+                {logo.icon}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </motion.section>
