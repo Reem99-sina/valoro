@@ -31,7 +31,7 @@ const Footer = () => {
                 <a
                   key={i}
                   href="#"
-                  className="w-10 h-10 bg-main-light-blue rounded-full flex items-center justify-center hover:bg-main-dark-blue transition-colors duration-200"
+                  className="w-10 h-10 bg-main-blue rounded-full flex items-center justify-center hover:bg-main-dark-blue transition-colors duration-200"
                 >
                   <Icon size={20} />
                 </a>
@@ -46,7 +46,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#about"
-                  className=" hover:text-blue-400 transition-colors duration-200"
+                  className=" hover:text-main-blue transition-colors duration-200"
                 >
                   About Us
                 </a>
@@ -54,7 +54,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#industry"
-                  className=" hover:text-blue-400 transition-colors duration-200"
+                  className=" hover:text-main-blue transition-colors duration-200"
                 >
                   Services
                 </a>
@@ -62,7 +62,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#project"
-                  className=" hover:text-blue-400 transition-colors duration-200"
+                  className=" hover:text-main-blue transition-colors duration-200"
                 >
                   Projects
                 </a>
@@ -71,7 +71,7 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className=" hover:text-blue-400 transition-colors duration-200"
+                  className=" hover:text-main-blue transition-colors duration-200"
                 >
                   Contact
                 </a>
