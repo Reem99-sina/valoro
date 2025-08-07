@@ -41,7 +41,7 @@ export function TechnologySection() {
   const settings: Settings = {
     dots: false,
     infinite: true,
-    speed: 500, // Speed of the transition animation (in ms)
+    speed: 1000, // Speed of the transition animation (in ms)
     slidesToShow: 5, // Number of slides to show at once
     slidesToScroll: 1, // Number of slides to scroll at once for a smoother effect
     autoplay: true,
@@ -72,8 +72,8 @@ export function TechnologySection() {
   };
 
   return (
-    <section id="technology" className=" bg-cover w-full  flex flex-col ">
-      <div className=" w-full container mx-auto  my-6 flex items-center gap-6 justify-center flex-col">
+    <section id="technology" className=" bg-cover w-full  flex flex-col min-h-[60vh] justify-center items-center py-12">
+      <div className=" w-full container mx-auto  mt-6 flex items-center gap-6 justify-center flex-col">
         <div className="flex flex-col items-start  ">
           <div className="text-center  font-black text-main-blue text-4xl">
             {t("valoroTechnologyStack.title")}

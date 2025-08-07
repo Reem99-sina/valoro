@@ -22,7 +22,7 @@ import Footer from "@/components/shared/footer.component";
 export default function Home() {
   return (
     <div className=" w-full bg-gradient-to-r from-blue-100 via-white to-blue-200">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start ">
+      <main className="flex flex-col gap-[100px] row-start-2 items-center sm:items-start ">
         <div className="bg-[url('/bg-main.jpg')] bg-cover w-full">
           <div className="container mx-auto min-h-screen">
             <Header />

@@ -134,7 +134,7 @@ const BlockchainSection = () => {
       >
         <div className="container mx-auto min-h-screen ">
           <div className="flex flex-col items-center gap-5 justify-center">
-            <div className="flex flex-col gap-5  w-auto py-6  justify-center">
+            <div className="flex flex-col gap-5  w-auto   justify-center">
               <motion.div
                 className="text-center font-black text-main-blue text-2xl md:text-4xl"
                 variants={itemVariants}

@@ -9,19 +9,21 @@ import {
   Instagram,
 } from "lucide-react";
 import { useTranslation } from "@/translations/clients";
+import { VoloroLogo } from "@/assets/icon";
 
 const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-gradient-to-r from-main-blue via-text-blue to-main-blue text-white rounded-t-3xl shadow-2xl mt-12">
+    <footer className="bg-[#000f41] text-white rounded-t-3xl shadow-2xl mt-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <h3 className="text-3xl font-bold  mb-6 text-main-light-blue">
+            {/* <h3 className="text-3xl font-bold  mb-6 text-main-light-blue">
               {t("hero.name")}
-            </h3>
+            </h3> */}
+            <VoloroLogo className='w-32 h-28'/>
             <p className=" mb-6 max-w-md leading-relaxed">{t("hero.title")}</p>
 
             <div className="flex space-x-4">
@@ -83,15 +85,15 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-blue-400" />
-                <span className="">info@valoro.com</span>
+                <span className=""> valoro.web3@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-blue-400" />
-                <span className="">+1 (555) 123-4567</span>
+                <span className="">+966 53 837 6303</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-blue-400" />
-                <span className="">Cairo, Egypt</span>
+                <span className="">Dubai United Arab Emirates</span>
               </div>
             </div>
           </div>
