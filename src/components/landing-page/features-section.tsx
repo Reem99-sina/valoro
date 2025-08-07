@@ -162,10 +162,12 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <TitleSliderComponet
-      title={t("blockchainProjects.title")}
-      data={projects}
-    />
+    <div className="flex flex-col gap-5  w-full  min-h-screen items-center justify-center py-12">
+      <TitleSliderComponet
+        title={t("blockchainProjects.title")}
+        data={projects}
+      />
+    </div>
   );
 };
 

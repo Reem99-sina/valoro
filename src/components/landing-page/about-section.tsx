@@ -103,10 +103,6 @@ const AboutSection = () => {
   };
 
   return (
-    <section
-      id="about"
-      className=" w-full flex flex-col justify-center  bg-cover min-h-screen"
-    >
       <motion.section
         id="about"
         className="w-full flex flex-col justify-center  min-h-screen py-12"
@@ -135,7 +131,7 @@ const AboutSection = () => {
             className="flex justify-center items-start mt-10 max-w-[90vw] mx-auto"
             variants={sectionVariants} // Use sectionVariants for staggered children
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
               {cards?.map((ele) => (
                 <motion.div
                   key={ele?.id}
@@ -157,7 +153,6 @@ const AboutSection = () => {
           </motion.div>
         </div>
       </motion.section>
-    </section>
   );
 };
 

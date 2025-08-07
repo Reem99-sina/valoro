@@ -3,7 +3,7 @@
 import Link from "next/link";
 import clsx from "clsx";
 
-import {  useMemo } from "react";
+import { useMemo } from "react";
 import { VoloroLogo } from "@/assets/icon";
 import { Button } from "../shared/button.component";
 import { useTranslation } from "@/translations/clients";
@@ -51,7 +51,10 @@ export const Header = () => {
         )}
       >
         <div className="flex  items-center justify-start gap-28 ">
-          <VoloroLogo className="w-24 h-28" />
+          {/* <VoloroLogo className="w-24 h-28" /> */}
+          <h1 className="text-4xl  font-extrabold leading-tight drop-shadow-lg">
+            {t("hero.name")}
+          </h1>
         </div>
         <div className="  flex  flex-row gap-x-8">
           {links.map((link) => (

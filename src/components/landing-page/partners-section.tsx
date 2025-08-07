@@ -15,11 +15,11 @@ const PartnersSection = () => {
     { id: "saudi", component: <Saudi /> },
     { id: "ibm", component: <Ibm /> },
   ];
-  const settings: Settings = {
+ const settings: Settings = {
     dots: false,
     infinite: true,
-    speed: 500, // Speed of the transition animation (in ms)
-    slidesToShow: 3, // Number of slides to show at once
+    speed: 1000, // Speed of the transition animation (in ms)
+    slidesToShow: 5, // Number of slides to show at once
     slidesToScroll: 1, // Number of slides to scroll at once for a smoother effect
     autoplay: true,
     autoplaySpeed: 0, // Set to 0 for continuous movement (relies on `speed` for transition duration)
@@ -30,7 +30,7 @@ const PartnersSection = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
         },
       },
       {
@@ -49,23 +49,25 @@ const PartnersSection = () => {
   };
 
   return (
-    <div className=" w-full container mx-auto  my-6 flex items-center gap-6 flex-col ">
-      <div className="flex flex-col items-start  ">
-        <div className="text-center  font-black text-main-blue text-4xl whitespace-nowrap">
-          {t("partners.title")}
-        </div>
-      </div>
-
-      <Slider {...settings} className="max-w-[60vw] items-center">
-        {icons?.map((ele) => (
-          <div className="flex  justify-center mx-4 h-full gap-3" key={ele?.id}>
-            {ele?.component}
+    <section id="technology" className=" bg-cover w-full  flex flex-col min-h-[60vh] justify-center items-center py-12">
+      <div className=" w-full container mx-auto  mt-6 flex items-center gap-6 justify-center flex-col">
+        <div className="flex flex-col items-start  ">
+          <div className="text-center  font-black text-main-blue text-4xl">
+            {t("partners.title")}
           </div>
-        ))}
-      </Slider>
-
-      {/* <EmblaTestimonialSlider testimonials={data}/> */}
-    </div>
+        </div>
+        <Slider {...settings} className="max-w-[60vw] items-center">
+          {icons?.map((ele) => (
+            <div
+              key={ele?.id}
+              className="!flex items-center space-x-2   py-3   hover:shadow-md transition-shadow justify-center"
+            >
+              {ele?.component}
+            </div>
+          ))}
+        </Slider>
+      </div>
+    </section>
   );
 };
 

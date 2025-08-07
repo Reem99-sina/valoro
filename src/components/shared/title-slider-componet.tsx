@@ -12,7 +12,7 @@ const TitleSliderComponet = ({
  
 
   return (
-    <div className=" w-full container mx-auto  my-6 flex flex-col items-center">
+    <div className=" w-full container mx-auto  flex flex-col items-center ">
       <div className="text-4xl w-fit font-black text-main-blue my-6 mx-3 rounded-lg text-center">
         {/* {data?.data?.about_us?.partner} */}
         {title}
