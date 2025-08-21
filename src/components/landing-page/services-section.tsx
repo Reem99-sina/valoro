@@ -8,18 +8,18 @@ const ServicesSection = () => {
   const services = [
     {
       title: t("services.digitalTransformation.title"),
-      icon: <Cpu className="w-6 h-6 text-white" />,
+      icon: <Cpu className="w-6 h-6 text-third-blue" />,
       desc: t("services.digitalTransformation.description"),
     },
     {
       title: t("services.aiSolutions.title"),
-      icon: <Brain className="w-6 h-6 text-white" />,
+      icon: <Brain className="w-6 h-6 text-third-blue" />,
 
       desc: t("services.aiSolutions.description"),
     },
     {
       title: t("services.blockchain.title"),
-      icon: <Layers className="w-6 h-6 text-white" />,
+      icon: <Layers className="w-6 h-6 text-third-blue" />,
 
       desc: t("services.blockchain.description"),
     },
@@ -60,7 +60,7 @@ const ServicesSection = () => {
         <div className="flex flex-col gap-5 flex-1 w-auto items-center">
           <div className="text-center p-4 w-max font-black text-main-blue text-4xl">
             <motion.div
-              className="text-center p-4 w-max font-black text-main-blue text-4xl"
+              className="text-3xl md:text-4xl font-bold text-third-blue text-center"
               variants={itemVariants}
             >
               {" "}
@@ -74,21 +74,21 @@ const ServicesSection = () => {
           >
             {services?.map((ele, index) => (
               <motion.ul
-                className="bg-main-blue rounded-2xl p-8 transition-all duration-300 hover:scale-105 list-disc w-full"
+                className="bg-eight-blue rounded-2xl  shadow-lg p-6 text-start text-white w-full hover:border hover:border-third-blue"
                 key={index}
                 variants={itemVariants}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <div className="w-12 h-12 bg-gradient-to-r from-main-blue to-main-light-blue rounded-lg flex items-center justify-center mb-6">
+                <div className="border border-third-blue w-12 h-12  rounded-lg flex items-center justify-center mb-6 bg-eight-blue">
                   {ele?.icon}
                 </div>
-                <p className=" font-bold text-main-light-blue text-lg">{ele?.title}</p>
+                <p className=" font-bold text-white text-lg">{ele?.title}</p>
 
                 {ele?.desc?.split(".")?.map(
                   (ele, index) =>
                     ele && (
-                      <li className=" text-md  ml-4" key={index}>
+                      <li className=" text-sm  " key={index}>
                         {ele}
                       </li>
                     )

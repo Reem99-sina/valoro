@@ -64,13 +64,13 @@ const IndustrySection = () => {
       <div className="container mx-auto flex items-center gap-5 justify-center flex-col ">
         <div className="flex flex-col gap-5 flex-[0.5] w-auto justify-center items-center">
           <motion.div
-            className="font-black text-main-blue text-4xl text-center"
+            className="text-3xl md:text-4xl font-bold text-third-blue text-center"
             variants={itemVariants}
           >
             <p>{t("featuredIn.subtitle")}</p>
           </motion.div>
           <motion.p
-            className="text-main-blue text-lg text-center max-w-2xl"
+            className="text-white text-lg text-center max-w-2xl"
             variants={itemVariants}
           >
             {t("featuredIn.description")}

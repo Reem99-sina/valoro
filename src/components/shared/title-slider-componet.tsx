@@ -13,7 +13,7 @@ const TitleSliderComponet = ({
 
   return (
     <div className=" w-full container mx-auto  flex flex-col items-center ">
-      <div className="text-4xl w-fit font-black text-main-blue my-6 mx-3 rounded-lg text-center">
+      <div className="text-3xl md:text-4xl font-bold text-third-blue text-center pb-9">
         {/* {data?.data?.about_us?.partner} */}
         {title}
       </div>
@@ -22,7 +22,7 @@ const TitleSliderComponet = ({
         {data?.map((ele, index) => (
            <motion.div
             key={index}
-            className={`flex justify-center h-full ${index % 3 === 2 ? "md:col-span-2" : "md:col-span-1"}`}
+            className={`flex justify-center h-full marketing gradient-border-aiplatforim ai-platform-big-box ${index % 3 === 2 ? "md:col-span-2" : "md:col-span-1"}`}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             // viewport={{ once: true, amount: 0.1 }} 

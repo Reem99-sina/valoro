@@ -156,45 +156,47 @@ export function AiSection() {
       {" "}
       <motion.section
         id="ai"
-        className="bg-gradient-to-r from-blue-100 via-white to-blue-200 w-full flex flex-col justify-center py-12"
+        className=" w-full flex  justify-center  py-12 min-h-screen"
         initial="hidden"
         whileInView="visible"
         // viewport={{ once: true, amount: 0.1 }} // Adjust amount as needed
         variants={sectionVariants}
       >
-        <div className="container mx-auto ">
-          <div className="flex flex-col gap-5 justify-center min-h-screen">
-            <div className="flex flex-col gap-5 justify-center items-center">
-              <motion.div
-                className="text-center w-max font-black text-main-blue text-4xl"
-                variants={itemVariants}
-              >
-                {t("aiProjects.title")}
-              </motion.div>
-            </div>
-            <div className=" flex items-center gap-5 ">
-              <div className="flex flex-col gap-3 flex-1">
-                {aiProject?.map((ele, index) => (
-                  <motion.ul
-                    className="list-disc"
-                    key={index}
-                    variants={itemVariants}
-                  >
-                    <div className="  text-start flex justify-start items-center gap-3">
-                      <Info className=" text-main-light-blue animate-bounce" />
-                      <p className="text-main-blue font-bold">{ele?.title}</p>
-                    </div>
-                  </motion.ul>
-                ))}
+        <div className="relative gradient-border-aiplatform rounded-[45px] bg-seven-blue text-white pt-12 text-center md:min-w-[70%]">
+          <div className="container mx-auto ">
+            <div className="flex flex-col gap-5 justify-center ">
+              <div className="flex flex-col gap-5 justify-center items-center">
+                <motion.div
+                  className="text-3xl md:text-4xl font-bold text-third-blue text-center"
+                  variants={itemVariants}
+                >
+                  {t("aiProjects.title")}
+                </motion.div>
               </div>
-              <motion.div variants={itemVariants}>
-                <Image
-                  src={ai}
-                  width={250}
-                  height={200}
-                  alt="blockchainImage"
-                />
-              </motion.div>
+              <div className=" flex items-center gap-5 justify-around">
+                <motion.div variants={itemVariants}>
+                  <Image
+                    src={ai}
+                    width={250}
+                    height={200}
+                    alt="blockchainImage"
+                  />
+                </motion.div>
+                <div className="flex flex-col gap-3 ">
+                  {aiProject?.map((ele, index) => (
+                    <motion.ul
+                      className="list-disc"
+                      key={index}
+                      variants={itemVariants}
+                    >
+                      <div className="  text-start flex justify-start items-center gap-3">
+                        <Info className=" text-main-light-blue animate-bounce" />
+                        <p className="text-white font-bold">{ele?.title}</p>
+                      </div>
+                    </motion.ul>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
