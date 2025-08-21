@@ -56,7 +56,7 @@ export const Header = () => {
             {t("hero.name")}
           </h1>
         </div>
-        <div className="  flex  flex-row gap-x-8">
+        <div className="hidden  md:flex  flex-row gap-x-8">
           {links.map((link) => (
             <div
               key={link.id}
@@ -73,7 +73,7 @@ export const Header = () => {
               <div className="cursor-pointer" onClick={() => {}}></div>
             </div>
           ))}
-          <Button text="Login" className="!px-6" />
+          <Button text="Request a Demo" className="!px-6 !bg-third-blue !text-four-blue" />
         </div>
       </div>
     </div>

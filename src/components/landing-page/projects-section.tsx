@@ -19,12 +19,13 @@ import { useTranslation } from "@/translations/clients";
 import { easeInOut } from "framer-motion";
 import React from "react";
 import { motion } from "framer-motion";
+import clsx from "clsx";
 
 const ProjectsSection = () => {
   const { t } = useTranslation();
 
   const projectLogo = [
-    { id: 1, icon: <Sdaia />, position: { top: "10%", left: "16%" } },
+    { id: 1, icon: <Sdaia  />, position: { top: "10%", left: "16%" } },
     { id: 2, icon: <Assay />, position: { top: "35%", left: "5%" } },
     {
       id: 3,
@@ -138,13 +139,13 @@ const ProjectsSection = () => {
         {/* العنوان والوصف */}
         <div className="flex flex-col gap-5 flex-1 w-auto items-center justify-center">
           <motion.div
-            className="p-4 font-black text-main-blue text-4xl text-center"
+            className="text-3xl md:text-4xl font-bold text-third-blue text-center"
             variants={itemVariants}
           >
             <p>{t("partners.subtitle")}</p>
           </motion.div>
           <motion.p
-            className="text-main-blue text-lg text-center max-w-2xl"
+            className="text-white text-lg text-center max-w-2xl"
             variants={itemVariants}
           >
             {t("partners.description")}
@@ -154,11 +155,12 @@ const ProjectsSection = () => {
         {/* الشبكة الرئيسية */}
         <div className="flex  gap-6 items-center justify-around w-full px-6 py-12 bg-[url('/tech.png')] bg-cover rounded-2xl">
           {/* العمود الأول */}
-          <div className="grid grid-cols-2 md:grid-cols-3 items-end gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 items-end gap-6">
             {leftLogos.map((logo, i) => (
               <motion.div
                 key={i}
                 variants={logoVariants}
+                className={clsx("bg-white p-2 rounded flex items-center justify-center",i==leftLogos.length-1&&'col-start-2')}
                 whileHover={{ scale: 1.1 }}
               >
                 {logo.icon}
@@ -172,11 +174,12 @@ const ProjectsSection = () => {
           </div>
 
           {/* العمود الثالث */}
-          <div className="grid grid-cols-2 md:grid-cols-3 items-end gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 items-end gap-6">
             {rightLogos.map((logo, i) => (
               <motion.div
                 key={i}
                 variants={logoVariants}
+                className={clsx("bg-white p-2 rounded flex items-center justify-center",i==rightLogos.length-1&&'col-start-2')}
                 whileHover={{ scale: 1.1 }}
               >
                 {logo.icon}

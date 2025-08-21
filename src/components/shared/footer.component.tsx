@@ -15,16 +15,16 @@ const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-[#000f41] text-white rounded-t-3xl shadow-2xl mt-12">
+    <footer className="bg-gradient-to-b to-six-blue from-transparent text-white  mt-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-center">
           {/* Company Info */}
           <div className="lg:col-span-2">
             {/* <h3 className="text-3xl font-bold  mb-6 text-main-light-blue">
               {t("hero.name")}
             </h3> */}
             <VoloroLogo className='w-32 h-28'/>
-            <p className=" mb-6 max-w-md leading-relaxed">{t("hero.title")}</p>
+            <p className=" mb-6 max-w-md leading-relaxed">{t("about.description")}</p>
 
             <div className="flex space-x-4">
               {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (

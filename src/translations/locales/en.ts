@@ -7,7 +7,8 @@ export default {
     login: "Login",
   },
   hero: {
-    title: "Discover Sharia-Compliant Solutions",
+    title: "Discover Sharia",
+    subTitle:"-Compliant Solutions",
     name: "Valoro",
   },
   stats: {

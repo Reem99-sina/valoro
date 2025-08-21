@@ -4,6 +4,8 @@ import React from "react";
 import { Users, Globe, Building } from "lucide-react";
 import { Box, Brain, House, Idea, Money, Network, Reward } from "@/assets/icon";
 import { easeInOut, motion } from "framer-motion";
+import PartnersSection from "./partners-section";
+import { useCounter } from "@/lib/counter";
 
 const AboutSection = () => {
   const { t } = useTranslation();
@@ -13,21 +15,21 @@ const AboutSection = () => {
       title: "",
       icon: <Users className="w-12 h-12  mx-auto mb-4" />,
       desc: t("stats.customers"),
-      number: "100+",
+      number: "100",
     },
     {
       id: 2,
       title: "",
       icon: <Globe className="w-12 h-12  mx-auto mb-4" />,
       desc: t("stats.countries"),
-      number: "10+",
+      number: "10",
     },
     {
       id: 3,
       title: "",
       icon: <Building className="w-12 h-12  mx-auto mb-4" />,
       desc: t("stats.people"),
-      number: "1000+",
+      number: "1000",
     },
     {
       id: 4,
@@ -103,57 +105,57 @@ const AboutSection = () => {
   };
 
   return (
-      <motion.section
-        id="about"
-        className="w-full flex flex-col justify-center  min-h-screen py-12"
-        initial="hidden"
-        whileInView="visible"
-        layoutScroll={true}
-        viewport={{ once: true, amount: 0}}
-        variants={sectionVariants}
-      >
-        <div className="container mx-auto ">
-          <div className="flex flex-col gap-5 flex-1 w-auto items-center justify-center">
-            <motion.div
-              className="p-4 font-black text-main-blue text-4xl text-center"
-              variants={itemVariants}
-            >
-              <p>{t("aboutNumberPeople.title")}</p>
-            </motion.div>
-            <motion.p
-              className="text-main-blue text-lg text-center max-w-2xl"
-              variants={itemVariants}
-            >
-              {t("aboutNumberPeople.desc")}
-            </motion.p>
-          </div>
+    <motion.section
+      id="about"
+      className="w-full flex flex-col justify-center  min-h-screen py-12 "
+      initial="hidden"
+      whileInView="visible"
+      layoutScroll={true}
+      viewport={{ once: true, amount: 0 }}
+      variants={sectionVariants}
+    >
+      <div className="container mx-auto ">
+        <div className="flex flex-col gap-5 flex-1 w-auto items-center justify-center">
           <motion.div
-            className="flex justify-center items-start mt-10 max-w-[90vw] mx-auto"
-            variants={sectionVariants} // Use sectionVariants for staggered children
+            className="text-3xl md:text-4xl font-bold text-third-blue text-center"
+            variants={itemVariants}
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-              {cards?.map((ele) => (
-                <motion.div
-                  key={ele?.id}
-                  className={`relative flex flex-col items-center justify-center p-6 rounded-xl bg-main-blue shadow-md transition-all duration-300 hover:scale-105 flex-1`}
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <div>{ele?.icon}</div>
-                  <div className=" text-3xl text-white font-black text-center">
-                    {ele?.number}
-                  </div>
-                  <div className="  text-sm text-main-light-blue font-black text-center">
-                    {ele?.desc}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <h2>{t("aboutNumberPeople.title")}</h2>
           </motion.div>
+          <PartnersSection />
         </div>
-      </motion.section>
+        <motion.div
+          className="flex justify-center items-start mt-10 max-w-[90vw] mx-auto"
+          variants={sectionVariants} // Use sectionVariants for staggered children
+        >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+            {cards?.map((ele) => (
+              <motion.div
+                key={ele?.id}
+                className={`relative flex flex-col items-center justify-center  rounded-xl transition-all duration-300 hover:scale-105 flex-1`}
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Card item={{ value: String(ele?.number), label: ele?.desc }} />
+               
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </motion.section>
   );
 };
 
 export default AboutSection;
+const Card = ({ item }: { item: { value: string; label: string } }) => {
+  const count = useCounter({ targetValue: Number(item.value) });
+
+  return (
+    <div className="bg-dark-blue rounded-2xl border border-fifth-blue shadow-lg p-6 text-center text-white w-full">
+      <h4 className="text-3xl font-bold text-third-blue">{count}</h4>
+      <p className="mt-2 text-sm">{item.label}</p>
+    </div>
+  );
+};

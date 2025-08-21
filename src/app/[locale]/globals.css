@@ -11,7 +11,15 @@
   --secondary-blue: #64b5f6;    
   --thrid-blue: #b3e5fc;         
   --secondary-light-blue: #eaf6fb;
-  --text-blue: #1565c0;        
+  --text-blue: #1565c0;
+  --third-blue:#54f7f2;
+  --four-blue:#004288;
+  --dark-blue:#0e2042;
+  --fifth-blue:#003077;
+  --six-blue:#02122d;
+  --seven-blue:#001f4d;
+  --eight-blue:#00327a80;
+  --nine-blue:#346dc5;
 }
 
 @theme inline {
@@ -28,6 +36,14 @@
   --color-thrid-blue: var(--thrid-blue);
   --color-secondary-light-blue: var(--secondary-light-blue);
   --color-text-blue: var(--text-blue);
+  --color-third-blue: var(--third-blue);
+  --color-four-blue:var(--four-blue);
+  --color-dark-blue:var(--dark-blue);
+  --color-fifth-blue:var(--fifth-blue);
+  --color-six-blue:var(--six-blue);
+  --color-seven-blue:var(--seven-blue);
+  --color-eight-blue:var(--eight-blue);
+  --color-nine-blue:var(--nine-blue);
 }
 
 @layer utilities {
@@ -142,4 +158,29 @@ body {
 
 .home-videos-row-top {
   animation: home-videos-row-top 60s linear infinite;
+}
+
+
+.gradient-border-aiplatform::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1.5px;
+  border-radius: 45px;
+  background: linear-gradient(45deg, #356dc8, transparent, #004a9b);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.gradient-border-aiplatforim::before {
+    content: "";
+    border-radius: 45px;
+    padding: 1.5px;
+    inset: 0;
+    position: absolute;
+    background: linear-gradient(45deg, #356dc8, transparent, #004a9b);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
 }
