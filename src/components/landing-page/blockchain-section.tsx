@@ -33,18 +33,18 @@ const BlockchainSection = () => {
   const blockChainServices = [
     {
       title: t("blockchainProfessionalServices.customerChallenge.title"),
-      icon: <Target className="text-third-blue"/>,
+      icon: <Target className="text-third-blue" />,
       desc: [
         t("blockchainProfessionalServices.customerChallenge.challenges.0"),
         t("blockchainProfessionalServices.customerChallenge.challenges.1"),
         t("blockchainProfessionalServices.customerChallenge.challenges.2"),
         t("blockchainProfessionalServices.customerChallenge.challenges.3"),
-        t("blockchainProfessionalServices.customerChallenge.challenges.4"),
+       
       ],
     },
     {
       title: t("blockchainProfessionalServices.valoroBenefits.title"),
-      icon: <Award className="text-third-blue"/>,
+      icon: <Award className="text-third-blue" />,
       desc: [
         t("blockchainProfessionalServices.valoroBenefits.benefits.0"),
         t("blockchainProfessionalServices.valoroBenefits.benefits.1"),
@@ -87,19 +87,19 @@ const BlockchainSection = () => {
         // viewport={{ once: true, amount: 0.1 }} // Adjust amount as needed
         variants={sectionVariants}
       >
-        <div className="relative gradient-border-aiplatform rounded-[45px] bg-seven-blue text-white py-4  text-center max-w-[70%]">
+        <div className="relative gradient-border-aiplatform rounded-[45px] bg-ten-blue text-white py-4  text-center max-w-[90%] md:max-w-[70%]">
           <div className="container mx-auto ">
             <div className="flex  flex-col gap-5 justify-center py-12">
               <motion.div
                 className="flex flex-col gap-5 items-center"
                 variants={itemVariants}
               >
-                <div className="text-3xl md:text-4xl font-bold text-third-blue text-center">
+                <div className="text-[28px] md:text-[40px] font-bold text-third-blue text-center">
                   {t("blockchainProjects.title")}
                 </div>
               </motion.div>
-              <div className="flex justify-between gap-5 md:flex-nowrap flex-wrap">
-                <motion.div className="" variants={itemVariants}>
+              <div className="flex  gap-5 items-start flex-col-reverse md:flex-row">
+                <motion.div className="flex justify-center items-center w-full" variants={itemVariants}>
                   <Image
                     src={blockchainImage}
                     width={400}
@@ -116,7 +116,7 @@ const BlockchainSection = () => {
                     >
                       <div className="  text-start flex justify-start items-center gap-3">
                         <Info className=" text-main-light-blue animate-bounce" />
-                        <p className="text-white ">{ele?.title}</p>
+                        <p className="text-white text-lg">{ele?.title}</p>
                       </div>
                     </motion.ul>
                   ))}
@@ -134,28 +134,29 @@ const BlockchainSection = () => {
         // viewport={{ once: true, amount: 0.1 }} // Adjust amount as needed
         variants={sectionVariants}
       >
-        <div className="container mx-auto min-h-screen w-full">
-          <div className="flex flex-col items-center gap-5 justify-center">
-            <div className="flex flex-col gap-5 justify-center">
+        <div className="container mx-auto ">
+
+          <div className="flex flex-col gap-5 flex-1 w-auto items-center">
+            <div className="flex flex-col gap-5 w-full justify-center">
               <motion.div
-                className="text-3xl md:text-4xl font-bold text-third-blue text-center"
+                className="text-[28px] md:text-[40px] font-bold text-third-blue text-center"
                 variants={itemVariants}
               >
                 {t("blockchainProfessionalServices.title")}
               </motion.div>
               <motion.div
-                className="flex flex-col md:flex-row gap-5 flex-wrap md:flex-nowrap"
+                className="flex gap-3  flex-wrap md:flex-nowrap"
                 variants={sectionVariants}
               >
                 {blockChainServices?.map((ele, index) => (
                   <ul
-                    className="bg-eight-blue rounded-2xl  shadow-lg p-6 text-start text-white w-full hover:border hover:border-third-blue"
+                    className="bg-eight-blue rounded-4xl  shadow-lg p-6 text-start text-white w-full hover:border hover:border-third-blue"
                     key={index}
                   >
-                    <div className="border border-third-blue w-12 h-12  rounded-lg flex items-center justify-center mb-6 bg-eight-blue">
+                    <div className="relative w-12 h-12 flex items-center justify-center mb-6 gradient-border-card">
                       {ele?.icon}
                     </div>
-                    <p className=" font-bold text-white text-lg">
+                    <p className=" font-bold text-white text-xl">
                       {ele?.title}
                     </p>
 

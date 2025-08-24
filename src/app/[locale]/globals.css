@@ -20,6 +20,7 @@
   --seven-blue:#001f4d;
   --eight-blue:#00327a80;
   --nine-blue:#346dc5;
+  --ten-blue:#00245a
 }
 
 @theme inline {
@@ -44,6 +45,7 @@
   --color-seven-blue:var(--seven-blue);
   --color-eight-blue:var(--eight-blue);
   --color-nine-blue:var(--nine-blue);
+  --color-ten-blue:var(--ten-blue);
 }
 
 @layer utilities {
@@ -172,6 +174,7 @@ body {
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
+  background-color: #00245a;
 }
 
 .gradient-border-aiplatforim::before {
@@ -183,4 +186,16 @@ body {
     background: linear-gradient(45deg, #356dc8, transparent, #004a9b);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
+}
+.gradient-border-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1.5px;
+    border-radius: 17px;
+    background: linear-gradient(45deg, #54f7f2, transparent, #54f7f2);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
 }

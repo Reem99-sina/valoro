@@ -22,7 +22,7 @@ export function BlogCard({
   return (
     <div
       className={clsx(
-        "relative  gradient-border-aiplatforim rounded-3xl shadow-2xl overflow-hidden   flex  items-center min-h-[400px]",
+        "relative  gradient-border-aiplatforim rounded-3xl shadow-2xl overflow-hidden   flex  items-center min-h-[400px] pt-5",
         index % 3 === 2 ? "flex-col md:flex-row-reverse w-full" : "flex-col"
       )}
     >

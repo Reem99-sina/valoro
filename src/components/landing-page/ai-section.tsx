@@ -156,18 +156,18 @@ export function AiSection() {
       {" "}
       <motion.section
         id="ai"
-        className=" w-full flex  justify-center  py-12 min-h-screen"
+        className=" w-full flex  justify-center  py-12 "
         initial="hidden"
         whileInView="visible"
         // viewport={{ once: true, amount: 0.1 }} // Adjust amount as needed
         variants={sectionVariants}
       >
-        <div className="relative gradient-border-aiplatform rounded-[45px] bg-seven-blue text-white pt-12 text-center md:min-w-[70%]">
+        <div className="relative gradient-border-aiplatform rounded-[45px]  text-white py-4  text-center w-[90%] md:w-[70%] ">
           <div className="container mx-auto ">
             <div className="flex flex-col gap-5 justify-center ">
               <div className="flex flex-col gap-5 justify-center items-center">
                 <motion.div
-                  className="text-3xl md:text-4xl font-bold text-third-blue text-center"
+                  className="text-[28px] md:text-[40px] font-bold text-third-blue text-center"
                   variants={itemVariants}
                 >
                   {t("aiProjects.title")}

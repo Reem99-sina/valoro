@@ -64,19 +64,19 @@ const IndustrySection = () => {
       <div className="container mx-auto flex items-center gap-5 justify-center flex-col ">
         <div className="flex flex-col gap-5 flex-[0.5] w-auto justify-center items-center">
           <motion.div
-            className="text-3xl md:text-4xl font-bold text-third-blue text-center"
+            className="text-[28px] md:text-[40px] font-bold text-third-blue text-center"
             variants={itemVariants}
           >
             <p>{t("featuredIn.subtitle")}</p>
           </motion.div>
           <motion.p
-            className="text-white text-lg text-center max-w-2xl"
+            className="text-white text-lg text-center md:max-w-2xl"
             variants={itemVariants}
           >
             {t("featuredIn.description")}
           </motion.p>
         </div>
-        <div className="bg-[url('/tech.png')] bg-cover w-full h-full">
+        <div className="bg-[url('/tech.png')] bg-cover w-full h-full bg-center">
           <div className="p-4 rounded-xl transition-all duration-300 hover:scale-105 z-10  gap-3    flex flex-col items-center justify-center">
             {dataIndustry?.map((ele, index) => (
               <motion.div

@@ -47,11 +47,11 @@ const DigitalTransformation = () => {
       // viewport={{ once: true, amount: 0.1 }} // Adjust amount as needed
       variants={sectionVariants}
     >
-      <div className="relative gradient-border-aiplatform rounded-[45px] bg-seven-blue text-white py-4  text-center max-w-[70%]">
+      <div className="relative gradient-border-aiplatform rounded-[45px] bg-ten-blue text-white py-4  text-center max-w-[90%] md:max-w-[70%] ">
         <div className="container mx-auto flex flex-col gap-5 justify-center text-center">
-          <div className="flex flex-col gap-5 flex-1 w-auto bg-opacity-80  p-8">
+          <div className="flex flex-col gap-5 flex-1 w-auto bg-opacity-80 p-2.5 md:p-8">
             <motion.div
-              className="text-3xl md:text-4xl font-bold text-third-blue text-center"
+              className="text-[28px] md:text-[40px] font-bold text-third-blue text-center"
               variants={itemVariants}
             >
               <p>{t("digitalTransformation.title")}</p>
@@ -60,9 +60,9 @@ const DigitalTransformation = () => {
               {t("digitalTransformation.subtitle")}
             </motion.p>
           </div>
-          <div className="flex  gap-5 items-start flex-col md:flex-row">
+          <div className="flex  gap-5 items-start flex-col-reverse md:flex-row">
             <motion.div
-              className="flex flex-col gap-5 w-auto items-center justify-center flex-1"
+              className="flex flex-col gap-5 w-full items-center justify-center flex-1"
               variants={itemVariants}
             >
               <Image
@@ -84,7 +84,7 @@ const DigitalTransformation = () => {
                     (elem, ind) =>
                       elem && (
                         <li
-                          className="text-white ml-12 transition-colors duration-200  text-sm"
+                          className="text-white ml-12 transition-colors duration-200  text-lg"
                           key={ind}
                         >
                           {elem}
