@@ -29,7 +29,7 @@ const MainHeader = () => {
     >
       <div className="flex flex-col justify-center items-center gap-3 text-center px-4 py-12 min-h-[75vh] max-w-4xl mx-auto">
         <motion.h2
-          className="text-2xl sm:text-2xl md:text-6xl  font-extrabold leading-tight mt-4 drop-shadow-lg"
+          className="text-3xl  md:text-7xl  font-extrabold leading-tight mt-4 drop-shadow-lg"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -48,7 +48,7 @@ const MainHeader = () => {
           </motion.span>
         </motion.h2>
         <motion.p
-          className="enterprise-paragraph mt-6 text-balance text-lg leading-7 text-slate-600 sm:text-xl dark:text-slate-300"
+          className="enterprise-paragraph mt-6 text-balance text-base leading-7 text-slate-600 sm:text-xl dark:text-slate-300"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
@@ -65,7 +65,7 @@ const MainHeader = () => {
         >
           <Button
             text="Get in Touch"
-            className="!px-6 bg-third-blue !text-four-blue rounded-xl !w-auto "
+            className="!px-6 bg-third-blue !text-four-blue  !w-auto !rounded-xl !font-normal"
           />
         </motion.div>
       </div>

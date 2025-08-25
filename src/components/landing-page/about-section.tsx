@@ -117,7 +117,7 @@ const AboutSection = () => {
       <div className="container mx-auto ">
         <div className="flex flex-col gap-5 flex-1 w-auto items-center justify-center">
           <motion.div
-            className="text-3xl md:text-4xl font-bold text-third-blue text-center"
+            className="text-[28px] md:text-[40px] font-bold text-third-blue text-center"
             variants={itemVariants}
           >
             <h2>{t("aboutNumberPeople.title")}</h2>
@@ -132,7 +132,7 @@ const AboutSection = () => {
             {cards?.map((ele) => (
               <motion.div
                 key={ele?.id}
-                className={`relative flex flex-col items-center justify-center  rounded-xl transition-all duration-300 hover:scale-105 flex-1`}
+                className={`relative flex flex-col    rounded-xl transition-all duration-300 hover:scale-105 flex-1`}
                 variants={itemVariants}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -153,9 +153,9 @@ const Card = ({ item }: { item: { value: string; label: string } }) => {
   const count = useCounter({ targetValue: Number(item.value) });
 
   return (
-    <div className="bg-dark-blue rounded-2xl border border-fifth-blue shadow-lg p-6 text-center text-white w-full">
-      <h4 className="text-3xl font-bold text-third-blue">{count}</h4>
-      <p className="mt-2 text-sm">{item.label}</p>
+    <div className="bg-dark-blue rounded-2xl border border-fifth-blue shadow-lg p-6 text-center text-white w-full h-full flex flex-col justify-center items-center">
+      <h4 className="text-[32px] font-bold text-third-blue">{count}</h4>
+      <p className="mt-2 text-lg">{item.label}</p>
     </div>
   );
 };
