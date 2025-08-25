@@ -167,7 +167,7 @@ export default function Navbar() {
               <Link
                 href={link.to as string}
                 className={clsx(
-                  "relative text-lg font-bold text-white  capitalize whitespace-nowrap"
+                  "relative text-lg  text-white  capitalize whitespace-nowrap"
                 )}
               >
                 {link.text}
@@ -177,7 +177,7 @@ export default function Navbar() {
           ))}
           <Button
             text="Request a Demo"
-            className="!px-6 !bg-third-blue !text-four-blue !w-auto "
+            className="!px-6 !bg-third-blue !text-four-blue !w-auto !text-sm"
           />
           </div>
         </Drawer>

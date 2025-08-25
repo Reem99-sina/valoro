@@ -42,7 +42,7 @@ export function TechnologySection() {
     dots: false,
     infinite: true,
     speed: 1000, // Speed of the transition animation (in ms)
-    slidesToShow: 5, // Number of slides to show at once
+    slidesToShow: 4, // Number of slides to show at once
     slidesToScroll: 1, // Number of slides to scroll at once for a smoother effect
     autoplay: true,
     autoplaySpeed: 0, // Set to 0 for continuous movement (relies on `speed` for transition duration)
@@ -59,13 +59,13 @@ export function TechnologySection() {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
         },
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
         },
       },
     ],
